@@ -1,13 +1,38 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html {
+  --blanco: rgba(255,255,255,1);
+  --negro: rgba(0,0,0,1);
+  --verde: rgba(30,223,206,1);
+  --azul: rgba(76,15,255,1);
+  --blanco: rgba(255,255,255,1);
+  --grisSuave: rgba(175,175,175,1);
+  --grisMedio: rgba(95,95,95,1);
+  --naranjo: rgba(252,125,74,1);
+  --amarillo: rgba(222,201,26,1);
+  --rosa: rgba(227,99,199,1);
+  --error: #e4032d;
+  --ok: #009d4e;
+  --fontTitle:'Poppins', sans-serif;
+  --fontCuerpo:'Spectral', serif;
+  --h1: 39.81px ;
+  --h2: 33.18px ;
+  --h3: 27.65px ;
+  --h4: 23.04px ;
+  --h5: 19.20px ;
+  --notification: 12.80px ;
+  --p:  16px ;
+  --bold: 700;
+  --italic: italic;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 0;
+  font-family: var(--fontTitle);
+}
+
+h1 {
+  color: var(--azul);
 }
