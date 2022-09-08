@@ -30,7 +30,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 0;
-  font-family: var(--fontTitle);
+  /* font-family: var(--fontTitle); */
 }
 
 h1 {

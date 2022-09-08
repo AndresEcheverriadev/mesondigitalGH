@@ -1,0 +1,40 @@
+/* .homePageMainContainer {
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    height: auto;
+    background-color: var(--grisSuave);
+} */
+
+.homePageMainContainer {
+    width: 95%;
+    display: grid;
+    grid:
+      "header" 1fr
+      "search" 2fr
+      "main" 4fr
+      "footer" 1fr
+      / 1fr;
+    gap: 8px;
+}
+  
+.header { 
+    padding: 10px;
+    grid-area: header; 
+}
+
+.search { 
+    grid-area: search; 
+}
+
+.main { 
+    grid-area: main; 
+}
+
+.footer { 
+    grid-area: footer; 
+}
+
+.botonbag {
+    color: var(--azul);
+}
