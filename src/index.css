@@ -4,6 +4,7 @@ html {
   --verde: rgba(30,223,206,1);
   --azul: rgba(76,15,255,1);
   --blanco: rgba(255,255,255,1);
+  --grisLight: rgba(175,175,175,0.05);
   --grisSuave: rgba(175,175,175,1);
   --grisMedio: rgba(95,95,95,1);
   --naranjo: rgba(252,125,74,1);
@@ -11,15 +12,16 @@ html {
   --rosa: rgba(227,99,199,1);
   --error: #e4032d;
   --ok: #009d4e;
-  --fontTitle:'Poppins', sans-serif;
-  --fontCuerpo:'Spectral', serif;
-  --h1: 39.81px ;
-  --h2: 33.18px ;
-  --h3: 27.65px ;
-  --h4: 23.04px ;
-  --h5: 19.20px ;
-  --notification: 12.80px ;
-  --p:  16px ;
+  --Title:600;
+  --Link:600;
+  --Cuerpo:400;
+  --h1: 34.84px ;
+  --h2: 29.03px ;
+  --h3: 24.19px ;
+  --h4: 20.16px ;
+  --h5: 16.80px ;
+  --notification: 11.67px ;
+  --p:  14px ;
   --bold: 700;
   --italic: italic;
 }
@@ -29,10 +31,72 @@ body {
   padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  line-height: 0;
-  /* font-family: var(--fontTitle); */
+  color: var(--negro);
+  font-family:'Poppins', sans-serif;
+  background-color: var(--grisLight);
+}
+
+a {
+  text-decoration: none;
+  font-size: var(--p);
+  font-weight:var(--Link);
+}
+
+a:hover {
+  color: var(--azul);
+}
+
+.animLink:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color:var(--azul);
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.animLink:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.animLink {
+  display: inline-block;
+  position: relative;
+  color:var(--azul);
+  text-decoration: none;
 }
 
 h1 {
-  color: var(--azul);
+  font-size: var(--h1);
+  font-weight: var(--Title);
+}
+
+h2 {
+  font-size: var(--h2);
+  font-weight: var(--Title);
+}
+
+h3 {
+  font-size: var(--h3);
+  font-weight: var(--Title);
+}
+
+h4 {
+  font-size: var(--h4);
+  font-weight: var(--Title);
+}
+
+h5 {
+  font-size: var(--h5);
+  font-weight: var(--Title);
+}
+
+p {
+  font-size: var(--p);
+  font-weight: var(--Cuerpo);
 }
