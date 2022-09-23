@@ -1,0 +1,22 @@
+@media (max-width: 575.98px) {
+
+    .navbarMainContainer {
+        justify-content: center;
+    }
+
+    .linksContainer {
+        display:none;
+    }
+
+    .initSessionContainer {
+        display:none ;
+    }
+
+  
+
+    
+
+
+
+    
+}

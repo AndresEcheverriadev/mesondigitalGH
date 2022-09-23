@@ -1,10 +1,13 @@
 import React from 'react';
 import Navbar from '../Header/Navbar';
 import { NavLink } from 'react-router-dom';
-import logoVerticalBlanco from '../../images/logoVertical-blanco.png'
-import './HomePage.css';
+import logoVerticalBlanco from '../../images/logoVertical-blanco.png';
 import ContactForm from '../ContactForm/ContactForm';
-import ilustracionHome from '../../images/ilustracionHome.svg'
+import ilustracionHome from '../../images/ilustracionHome.svg';
+import footerRelax from '../../images/footerRelax2.svg';
+// import footerRelax from '../../images/footerRelaxH.svg';
+import './HomePage.css';
+import './HomePageResponsive.css';
 
 function HomePage() {
   return (
@@ -18,8 +21,8 @@ function HomePage() {
         </header>
 
         <div className='homeTitlesContainer'>
-          <h1>Resuelve tus trámites en menos tiempo.</h1>
-          <h1>Documentos notariales en línea.</h1>
+          <h1 className='homeTitle1'>Resuelve tus trámites en menos tiempo.</h1>
+          <h1 className='homeTitle2'>Documentos notariales en línea.</h1>
         </div>
 
         <div className='argsContainer'>
@@ -81,9 +84,14 @@ function HomePage() {
         </div>
 
       </div>
+
+      <hr />
         
     
       <main className="mainContainer">
+
+        <h3>Selecciona tu Trámite en Línea</h3>
+        
         <div className='tramitesCardsContainer'>
 
           <NavLink to='' className='tramiteCard'>
@@ -329,6 +337,14 @@ function HomePage() {
     <div className='formContainer'>
       <h3>Contactanos</h3>
       <ContactForm/>
+    </div>
+
+    <div className='ilustracionFooter'>
+      <div className='footerTitles'>
+        <h3>Ahorra tiempo.</h3>
+        <h3>Disfruta tu vida.</h3>
+      </div>
+      <img src={footerRelax} alt="" />
     </div>
 
 

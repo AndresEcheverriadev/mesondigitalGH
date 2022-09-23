@@ -15,12 +15,12 @@ html {
   --Title:600;
   --Link:600;
   --Cuerpo:400;
-  --h1: 34.84px ;
-  --h2: 29.03px ;
-  --h3: 24.19px ;
-  --h4: 20.16px ;
-  --h5: 16.80px ;
-  --notification: 11.67px ;
+  --h1: 2.488rem ;
+  --h2: 2.074rem ;
+  --h3: 1.728rem ;
+  --h4: 1.44rem ;
+  --h5: 1.2rem ;
+  --notification: 0.833rem ;
   --p:  14px ;
   --bold: 700;
   --italic: italic;
