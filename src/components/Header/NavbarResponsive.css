@@ -1,22 +1,22 @@
 @media (max-width: 575.98px) {
 
     .navbarMainContainer {
-        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
     }
 
+    .container-fluid {
+        flex-direction: column;
+    }
+
+    
     .linksContainer {
-        display:none;
+        flex-direction: column;
+        justify-content: flex-start;
     }
 
     .initSessionContainer {
-        display:none ;
+        width: 60%;
     }
-
-  
-
-    
-
-
-
     
 }

@@ -4,8 +4,7 @@ import { NavLink } from 'react-router-dom';
 import logoVerticalBlanco from '../../images/logoVertical-blanco.png';
 import ContactForm from '../ContactForm/ContactForm';
 import ilustracionHome from '../../images/ilustracionHome.svg';
-import footerRelax from '../../images/footerRelax2.svg';
-// import footerRelax from '../../images/footerRelaxH.svg';
+import ilustracionFooter from '../../images/ilustracionHomeB.svg';
 import './HomePage.css';
 import './HomePageResponsive.css';
 
@@ -344,7 +343,7 @@ function HomePage() {
         <h3>Ahorra tiempo.</h3>
         <h3>Disfruta tu vida.</h3>
       </div>
-      <img src={footerRelax} alt="" />
+      <img src={ilustracionFooter} alt="" />
     </div>
 
 
