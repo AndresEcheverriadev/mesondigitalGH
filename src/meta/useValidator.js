@@ -1,5 +1,6 @@
 import { useState } from "react";
 import validator from "validator";
+import useDB from "./useDB";
 
 const useValidator = () => {
   const [inputEmail, setinputEmail] = useState("");
@@ -7,6 +8,7 @@ const useValidator = () => {
   const [inputPassword, setinputPassword] = useState("");
   const [validatedPassword, setvalidatedPassword] = useState(false);
   const [checkedTerms, setcheckedTerms] = useState(false);
+  const { checkUser } = useDB();
 
   const validateEmail = (e) => {
     const inputEmail = e.target.value;
@@ -52,15 +54,16 @@ const useValidator = () => {
   };
 
   const loginCheck = (e) => {
+    const errorNoFound = false;
     e.preventDefault();
     const loginErrorTip = document.getElementById("loginErrorTip");
-    if (
-      validatedEmail === true &&
-      (validatedPassword === checkedTerms) === true
-    ) {
+    if (validatedEmail === true && validatedPassword) {
       const loginData = { emailData: inputEmail, passwordData: inputPassword };
       loginErrorTip.style.visibility = "hidden";
-      alert(JSON.stringify(loginData));
+      checkUser(loginData);
+      if (errorNoFound === true) {
+        alert("Usuario no encontrado");
+      }
     } else {
       loginErrorTip.style.visibility = "visible";
     }

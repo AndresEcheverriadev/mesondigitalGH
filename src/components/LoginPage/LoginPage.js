@@ -11,7 +11,7 @@ function LoginPage() {
   return (
     <div className="loginPageMainWrapper">
       <div className="viewloginPageWrapper">
-        <header className="headerContainer">
+        <header className="headerLoginContainer">
           <NavLink to="/" className="logoContainer">
             <img src={Logo} alt="" />
           </NavLink>
@@ -20,7 +20,7 @@ function LoginPage() {
         <form className="userLoginFormContainer">
           <div class="mb-3">
             <label for="exampleInputEmail1" className="form-label">
-              Nombre de usuario o correo electrónico
+              Correo electrónico
             </label>
             <input
               type="email"
@@ -44,30 +44,15 @@ function LoginPage() {
               id="exampleInputPassword1"
               onChange={validatePassword}
             />
+            <NavLink to="/" className="form-check--passRecover">
+              Recuperar contraseña
+            </NavLink>
             <ErrorTip
-              errorText="Debes escribir un password"
-              name={"passwordErrorTip"}
+              errorText="Debes ingresar tus datos correctamente"
+              name={"loginErrorTip"}
             />
           </div>
-          <div class="mb-3 form-check">
-            <div className="form-check--passRemember">
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="exampleCheck1"
-              />
-              <label class="form-check-label" for="exampleCheck1">
-                Recordarme
-              </label>
-            </div>
-            <div className="form-check--passRecover">
-              <NavLink to="/">Recuperar contraseña</NavLink>
-            </div>
-          </div>
-          <ErrorTip
-            errorText="Debes ingresar tus datos correctamente"
-            name={"loginErrorTip"}
-          />
+
           <div className="userLoginForm--buttonsContainer">
             <button
               type="submit"
@@ -75,14 +60,26 @@ function LoginPage() {
               onClick={loginCheck}
             >
               Iniciar sesión
-            </button>
-            <NavLink to="/crear-cuenta">
-              <button
-                type="submit"
-                className="btn btn-outline-primary userLoginForm--btnCreate"
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-person-circle"
+                viewBox="0 0 16 16"
               >
-                Crear cuenta
-              </button>
+                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                <path
+                  fill-rule="evenodd"
+                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"
+                />
+              </svg>
+            </button>
+            <NavLink
+              to="/crear-cuenta"
+              className="btn btn-outline-primary userLoginForm--btnCreate"
+            >
+              Crear cuenta
             </NavLink>
           </div>
         </form>
