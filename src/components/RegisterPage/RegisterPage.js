@@ -3,10 +3,10 @@ import { NavLink } from "react-router-dom";
 import Logo from "../../images/logo.svg";
 import useValidator from "../../meta/useValidator";
 import ErrorTip from "../ErrorTip/ErrorTip";
-import "./LoginPage.css";
-import "./LoginPageResponsive.css";
+import "./RegisterPage.css";
+import "./RegisterPageResponsive.css";
 
-function LoginPage() {
+function RegisterPage() {
   const { validateEmail, validatePassword, loginCheck } = useValidator();
   return (
     <div className="loginPageMainWrapper">
@@ -88,4 +88,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default RegisterPage;

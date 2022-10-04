@@ -46,6 +46,7 @@
   height: auto;
   text-align: left;
   font-size: var(--p);
+  background-color: var(--verde);
 }
 
 .form-check {
