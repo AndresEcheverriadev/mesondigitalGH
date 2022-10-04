@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Logo from "../../images/logo.svg";
+import logoLogin from "../../images/logo.svg";
 import useValidator from "../../meta/useValidator";
 import ErrorTip from "../ErrorTip/ErrorTip";
 import "./RegisterPage.css";
@@ -10,56 +10,142 @@ function RegisterPage() {
   const { validateEmail, validatePassword, loginCheck } = useValidator();
   return (
     <div className="loginPageMainWrapper">
-      <div className="viewloginPageWrapper">
+      <div className="viewRegisterPageWrapper">
         <header className="headerLoginContainer">
-          <NavLink to="/" className="logoContainer">
-            <img src={Logo} alt="" />
+          <NavLink to="/" className="loginLogoContainer">
+            <img src={logoLogin} alt="" />
           </NavLink>
         </header>
-
-        <form className="userLoginFormContainer">
-          <div class="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
-              Correo electrónico
-            </label>
-            <input
-              type="email"
-              class="form-control"
-              id="userLoginInputEmail"
-              aria-describedby="emailHelp"
-              onChange={validateEmail}
-            />
-            <ErrorTip
-              errorText="Escribe una dirección de correo válida"
-              name="emailErrorTip"
-            />
+        <form className="userRegisterFormContainer">
+          <div className="personalDataContainer">
+            <div class="mb-3">
+              <label for="userLoginInputEmail" className="form-label">
+                Nombre
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="userLoginInputEmail"
+                aria-describedby="emailHelp"
+                onChange={validateEmail}
+              />
+              <ErrorTip
+                errorText="Debe Ingresar un nombre"
+                name="nameErrorTip"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="userLoginInputEmail" className="form-label">
+                Apellido Paterno
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="userLoginInputEmail"
+                aria-describedby="emailHelp"
+                onChange={validateEmail}
+              />
+              <ErrorTip
+                errorText="Debe Ingresar un nombre"
+                name="nameErrorTip"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="userLoginInputEmail" className="form-label">
+                Apellido Materno
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="userLoginInputEmail"
+                aria-describedby="emailHelp"
+                onChange={validateEmail}
+              />
+              <ErrorTip
+                errorText="Debe Ingresar un nombre"
+                name="nameErrorTip"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="userLoginInputEmail" className="form-label">
+                RUT
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="userLoginInputEmail"
+                aria-describedby="emailHelp"
+                onChange={validateEmail}
+              />
+              <ErrorTip
+                errorText="Debe Ingresar un nombre"
+                name="nameErrorTip"
+              />
+            </div>
           </div>
-          <div class="mb-3">
-            <label for="exampleInputPassword1" className="form-label">
-              Contraseña
-            </label>
-            <input
-              type="password"
-              class="form-control"
-              id="exampleInputPassword1"
-              onChange={validatePassword}
-            />
-            <NavLink to="/" className="form-check--passRecover">
-              Recuperar contraseña
-            </NavLink>
-            <ErrorTip
-              errorText="Debes ingresar tus datos correctamente"
-              name="loginErrorTip"
-            />
+
+          <div className="registerDataContainer">
+            <div class="mb-3">
+              <label for="userLoginInputEmail" className="form-label">
+                Correo electrónico
+              </label>
+              <input
+                type="email"
+                class="form-control"
+                id="userLoginInputEmail"
+                aria-describedby="emailHelp"
+                onChange={validateEmail}
+              />
+              <ErrorTip
+                errorText="Escribe una dirección de correo válida"
+                name="emailErrorTip"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="userLoginInputPassword" className="form-label">
+                Contraseña
+              </label>
+              <input
+                type="password"
+                class="form-control"
+                id="userLoginInputPassword"
+                onChange={validatePassword}
+              />
+              <ErrorTip
+                errorText="Debes ingresar tus datos correctamente"
+                name="loginErrorTip"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="userLoginInputPassword" className="form-label">
+                Repetir Contraseña
+              </label>
+              <input
+                type="password"
+                class="form-control"
+                id="userLoginInputPassword"
+                onChange={validatePassword}
+              />
+              <ErrorTip
+                errorText="Debes ingresar tus datos correctamente"
+                name="loginErrorTip"
+              />
+            </div>
+            <div className="disclaimerContainer">
+              <p>
+                Tus datos personales serán usados para agilizar la creación de
+                documentos notariales.
+              </p>
+            </div>
           </div>
 
-          <div className="userLoginForm--buttonsContainer">
+          <div className="userRegisterButtonsContainer">
             <button
               type="submit"
-              className="btn btn-primary userLoginForm--btnSession"
+              className="btn userRegisterForm--btnRegister"
               onClick={loginCheck}
             >
-              Iniciar sesión
+              Crear cuenta
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -75,11 +161,8 @@ function RegisterPage() {
                 />
               </svg>
             </button>
-            <NavLink
-              to="/crear-cuenta"
-              className="btn btn-outline-primary userLoginForm--btnCreate"
-            >
-              Crear cuenta
+            <NavLink to="/login" className="btn userRegisterForm--btnLogin">
+              Ya tengo cuenta
             </NavLink>
           </div>
         </form>

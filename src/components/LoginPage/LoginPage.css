@@ -27,13 +27,13 @@
   margin-bottom: 10px;
 }
 
-.headerLoginContainer .logoContainer {
+.headerLoginContainer .loginLogoContainer {
   width: 100%;
   height: auto;
 }
 
-.headerLoginContainer .logoContainer img {
-  width: 100%;
+.headerLoginContainer .loginLogoContainer img {
+  width: 317px;
   height: auto;
 }
 
@@ -46,6 +46,11 @@
   height: auto;
   text-align: left;
   font-size: var(--p);
+}
+
+.userLoginFormContainer .mb-3 {
+  width: 100%;
+  height: auto;
 }
 
 .form-check {

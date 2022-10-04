@@ -7,12 +7,12 @@
   align-items: center;
 }
 
-.viewLoginPageWrapper {
+.viewRegisterPageWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  width: 25%;
+  width: 100%;
   height: 100vh;
 }
 
@@ -27,54 +27,61 @@
   margin-bottom: 10px;
 }
 
-.headerLoginContainer .logoContainer {
+.headerLoginContainer .loginLogoContainer {
   width: 100%;
   height: auto;
 }
 
-.headerLoginContainer .logoContainer img {
-  width: 100%;
+.headerLoginContainer .loginLogoContainer img {
+  width: 317px;
   height: auto;
 }
 
-.userLoginFormContainer {
+.userRegisterFormContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  width: 100%;
+  align-items: flex-start;
+  width: 50%;
   height: auto;
   text-align: left;
   font-size: var(--p);
+  flex-wrap: wrap;
   background-color: var(--verde);
+  border-style: hidden;
+  border-radius: 20px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
-.form-check {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.form-check--passRecover {
-  color: var(--grisMedio);
-}
-
-.form-check--passRecover:hover {
-  color: var(--azul);
-}
-
-.userLoginForm--buttonsContainer {
+.registerDataContainer,
+.personalDataContainer,
+.userRegisterButtonsContainer {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: auto;
-  gap: 10px;
   justify-content: center;
   align-items: center;
+  width: 50%;
+  height: auto;
 }
 
-.userLoginForm--btnSession,
-.userLoginForm--btnCreate {
+.disclaimerContainer {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  height: 100%;
+  padding-top: 1.5rem;
+}
+
+.mb-3 {
+  width: 100%;
+  height: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.userRegisterForm--btnRegister,
+.userRegisterForm--btnLogin {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -90,21 +97,21 @@
   gap: 0.5rem;
 }
 
-.userLoginForm--btnSession {
+.userRegisterForm--btnRegister {
   background-color: var(--azul);
   color: var(--blanco);
 }
 
-.userLoginForm--btnSession:hover {
-  background-color: var(--verde);
-  color: var(--azul);
-}
-
-.userLoginForm--btnCreate {
+.userRegisterForm--btnRegister:hover {
+  background-color: var(--blanco);
   color: var(--verde);
 }
 
-.userLoginForm--btnCreate:hover {
+.userRegisterForm--btnLogin {
+  color: var(--blanco);
+}
+
+.userRegisterForm--btnLogin:hover {
   background-color: var(--verde);
   color: var(--azul);
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Logo from "../../images/logo.svg";
+import logoLogin from "../../images/logo.svg";
 import useValidator from "../../meta/useValidator";
 import ErrorTip from "../ErrorTip/ErrorTip";
 import "./LoginPage.css";
@@ -12,14 +12,13 @@ function LoginPage() {
     <div className="loginPageMainWrapper">
       <div className="viewloginPageWrapper">
         <header className="headerLoginContainer">
-          <NavLink to="/" className="logoContainer">
-            <img src={Logo} alt="" />
+          <NavLink to="/" className="loginLogoContainer">
+            <img src={logoLogin} alt="" />
           </NavLink>
         </header>
-
         <form className="userLoginFormContainer">
           <div class="mb-3">
-            <label for="exampleInputEmail1" className="form-label">
+            <label for="userLoginInputEmail" className="form-label">
               Correo electrónico
             </label>
             <input
@@ -35,13 +34,13 @@ function LoginPage() {
             />
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" className="form-label">
+            <label for="userLoginInputPassword" className="form-label">
               Contraseña
             </label>
             <input
               type="password"
               class="form-control"
-              id="exampleInputPassword1"
+              id="userLoginInputPassword"
               onChange={validatePassword}
             />
             <NavLink to="/" className="form-check--passRecover">
@@ -56,7 +55,7 @@ function LoginPage() {
           <div className="userLoginForm--buttonsContainer">
             <button
               type="submit"
-              className="btn btn-primary userLoginForm--btnSession"
+              className="btn userLoginForm--btnSession"
               onClick={loginCheck}
             >
               Iniciar sesión
@@ -77,7 +76,7 @@ function LoginPage() {
             </button>
             <NavLink
               to="/crear-cuenta"
-              className="btn btn-outline-primary userLoginForm--btnCreate"
+              className="btn userLoginForm--btnCreate"
             >
               Crear cuenta
             </NavLink>
