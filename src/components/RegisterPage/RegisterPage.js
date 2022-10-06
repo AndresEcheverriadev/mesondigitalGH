@@ -7,7 +7,7 @@ import "./RegisterPage.css";
 import "./RegisterPageResponsive.css";
 
 function RegisterPage() {
-  const { validateEmail, validatePassword, loginCheck } = useValidator();
+  const { validateName,validatePaterno,validateMaterno,validateRut,validateEmail,validateRegisterPassword,validatePasswordRepeat,registerCheck } = useValidator();
   return (
     <div className="loginPageMainWrapper">
       <div className="viewRegisterPageWrapper">
@@ -18,70 +18,93 @@ function RegisterPage() {
         </header>
         <form className="userRegisterFormContainer">
           <div className="personalDataContainer">
+          
             <div class="mb-3">
-              <label for="userLoginInputEmail" className="form-label">
+              <label for="userRegisterName" className="form-label">
                 Nombre
               </label>
               <input
                 type="text"
                 class="form-control"
-                id="userLoginInputEmail"
-                aria-describedby="emailHelp"
-                onChange={validateEmail}
+                id="userRegisterName"
+                aria-describedby="userRegisterName"
+                onChange={validateName}
               />
               <ErrorTip
-                errorText="Debe Ingresar un nombre"
+                errorText="Tu nombre solo puede contener letras"
                 name="nameErrorTip"
               />
             </div>
+
             <div class="mb-3">
-              <label for="userLoginInputEmail" className="form-label">
+              <label for="userRegisterPaterno" className="form-label">
                 Apellido Paterno
               </label>
               <input
                 type="text"
                 class="form-control"
-                id="userLoginInputEmail"
-                aria-describedby="emailHelp"
-                onChange={validateEmail}
+                id="userRegisterPaterno"
+                aria-describedby="userRegisterPaterno"
+                onChange={validatePaterno}
               />
               <ErrorTip
-                errorText="Debe Ingresar un nombre"
-                name="nameErrorTip"
+                errorText="Tu apellido solo puede contener letras"
+                name="paternoErrorTip"
               />
             </div>
+
             <div class="mb-3">
-              <label for="userLoginInputEmail" className="form-label">
+              <label for="userRegisterMaterno" className="form-label">
                 Apellido Materno
               </label>
               <input
                 type="text"
                 class="form-control"
-                id="userLoginInputEmail"
-                aria-describedby="emailHelp"
-                onChange={validateEmail}
+                id="userRegisterPaterno"
+                aria-describedby="userRegisterMaterno"
+                onChange={validateMaterno}
               />
               <ErrorTip
-                errorText="Debe Ingresar un nombre"
-                name="nameErrorTip"
+                errorText="Tu apellido solo puede contener letras"
+                name="maternoErrorTip"
               />
             </div>
+
             <div class="mb-3">
-              <label for="userLoginInputEmail" className="form-label">
+              <label for="userRegisterRut" className="form-label">
                 RUT
               </label>
-              <input
-                type="text"
+              <div className="inputRutContainer">
+                <input
+                  type="number"
+                  class="form-control"
+                  id="userRegisterRut"
+                  aria-describedby="userRegisterRut"
+                  onChange={validateRut}
+                /><p>-</p>
+                <input
+                type='text'
                 class="form-control"
-                id="userLoginInputEmail"
-                aria-describedby="emailHelp"
-                onChange={validateEmail}
-              />
+                id="userRegisterRutVerificador"
+                aria-describedby="userRegisterRutVerificador"
+                maxlength='1'
+                onChange={validateRut}
+                />
+              </div>
+            
               <ErrorTip
-                errorText="Debe Ingresar un nombre"
-                name="nameErrorTip"
+                errorText="Rut no válido"
+                name="rutErrorTip"
               />
             </div>
+
+            <div className="disclaimerContainer">
+              <p>
+                Tus datos personales serán usados para agilizar la creación de
+                documentos.
+              </p>
+            </div>
+
           </div>
 
           <div className="registerDataContainer">
@@ -102,48 +125,54 @@ function RegisterPage() {
               />
             </div>
             <div class="mb-3">
-              <label for="userLoginInputPassword" className="form-label">
+              <label for="userRegisterInputPassword" className="form-label">
                 Contraseña
               </label>
               <input
                 type="password"
                 class="form-control"
-                id="userLoginInputPassword"
-                onChange={validatePassword}
+                id="userRegisterInputPassword"
+                onChange={validateRegisterPassword}
               />
               <ErrorTip
-                errorText="Debes ingresar tus datos correctamente"
-                name="loginErrorTip"
+                errorText="Tu contraseña debe ser de 6 caracteres de largo mínimo y debe contener números y letras mayusculas/minusculas"
+                name="registerPasswordErrorTip"
               />
             </div>
+
             <div class="mb-3">
-              <label for="userLoginInputPassword" className="form-label">
+              <label for="userRegisterPasswordRepeat" className="form-label">
                 Repetir Contraseña
               </label>
               <input
                 type="password"
                 class="form-control"
-                id="userLoginInputPassword"
-                onChange={validatePassword}
+                id="userRegisterPasswordRepeat"
+                onChange={validatePasswordRepeat}
               />
               <ErrorTip
-                errorText="Debes ingresar tus datos correctamente"
-                name="loginErrorTip"
+                errorText="La contraseña no coincide"
+                name="repeatPasswordErrorTip"
               />
             </div>
-            <div className="disclaimerContainer">
-              <p>
-                Tus datos personales serán usados para agilizar la creación de
-                documentos notariales.
-              </p>
+
+            <div class="termsCheckboxContainer">
+              <input type="checkbox" id="termsCheckbox" /> 
+              <p>Acepto los <NavLink to='/'>Términos y Condiciones</NavLink> de uso del sitio web</p>
+              <ErrorTip
+                errorText="Debes aceptar los Términos y Condiciones"
+                name="checkTermsErrorTip"
+              />
             </div>
+
+         
           </div>
 
           <div className="userRegisterButtonsContainer">
             <button
               type="submit"
               className="btn userRegisterForm--btnRegister"
-              onClick={loginCheck}
+              onClick={registerCheck}
             >
               Crear cuenta
               <svg
@@ -164,6 +193,7 @@ function RegisterPage() {
             <NavLink to="/login" className="btn userRegisterForm--btnLogin">
               Ya tengo cuenta
             </NavLink>
+            
           </div>
         </form>
       </div>
