@@ -7,7 +7,6 @@ const useValidator = () => {
   const [validatedEmail, setvalidatedEmail] = useState(false);
   const [inputPassword, setinputPassword] = useState("");
   const [validatedPassword, setvalidatedPassword] = useState(false);
-  const [checkedTerms, setcheckedTerms] = useState(false);
   const { checkUser } = useDB();
 
   const [inputRegisterName, setInputRegisterName] = useState("");
@@ -19,10 +18,13 @@ const useValidator = () => {
   const [inputRut, setInputRut] = useState("");
   const [validatedRut, setValidatedRut] = useState("");
   const [inputRegisterPassword, setInputRegisterPassword] = useState("");
-  const [validatedRegisterPassword, setValidatedRegisterPassword] = useState("");
+  const [validatedRegisterPassword, setValidatedRegisterPassword] = useState(
+    ""
+  );
   const [inputRepeatPassword, setInputRepeatPassword] = useState("");
   const [validatedRepeatPassword, setValidatedRepeatPassword] = useState("");
-
+  const [checkedTerms, setcheckedTerms] = useState(false);
+  const [errorText, setErrorText] = useState("");
 
   const validateEmail = (e) => {
     const inputEmail = e.target.value;
@@ -47,7 +49,7 @@ const useValidator = () => {
       setInputRegisterName(inputRegisterName);
       setValidatedRegisterName(true);
       nameErrorTip.style.visibility = "hidden";
-    } else if (inputRegisterName  === "") {
+    } else if (inputRegisterName === "") {
       setValidatedRegisterName(false);
       nameErrorTip.style.visibility = "hidden";
     } else {
@@ -60,10 +62,10 @@ const useValidator = () => {
     const inputRegisterPaterno = e.target.value;
     const paternoErrorTip = document.getElementById("paternoErrorTip");
     if (validator.isAlpha(inputRegisterPaterno)) {
-      setInputRegisterPaterno(inputRegisterPaterno );
+      setInputRegisterPaterno(inputRegisterPaterno);
       setValidatedRegisterPaterno(true);
       paternoErrorTip.style.visibility = "hidden";
-    } else if (inputRegisterPaterno  === "") {
+    } else if (inputRegisterPaterno === "") {
       setValidatedRegisterPaterno(false);
       paternoErrorTip.style.visibility = "hidden";
     } else {
@@ -79,7 +81,7 @@ const useValidator = () => {
       setInputRegisterMaterno(inputRegisterMaterno);
       setValidatedRegisterMaterno(true);
       maternoErrorTip.style.visibility = "hidden";
-    } else if (inputRegisterMaterno  === "") {
+    } else if (inputRegisterMaterno === "") {
       setValidatedRegisterMaterno(false);
       maternoErrorTip.style.visibility = "hidden";
     } else {
@@ -90,12 +92,20 @@ const useValidator = () => {
 
   const validateRut = () => {
     const userRegisterRut = document.getElementById("userRegisterRut");
-    const userRegisterRutVerificador = document.getElementById("userRegisterRutVerificador");
+    const userRegisterRutVerificador = document.getElementById(
+      "userRegisterRutVerificador"
+    );
     const inputRut = userRegisterRut.value;
     const inputVerificador = userRegisterRutVerificador.value;
     const rutErrorTip = document.getElementById("rutErrorTip");
-    if (validator.isNumeric(inputRut,{no_symbols: true}) && (validator.isNumeric(inputVerificador) && validator.isLength(inputVerificador)  || (inputVerificador === 'k' ||  inputVerificador === 'K')) ) {
-      setInputRut(inputRut,inputVerificador);
+    if (
+      validator.isNumeric(inputRut, { no_symbols: true }) &&
+      ((validator.isNumeric(inputVerificador) &&
+        validator.isLength(inputVerificador)) ||
+        inputVerificador === "k" ||
+        inputVerificador === "K")
+    ) {
+      setInputRut(inputRut, inputVerificador);
       setValidatedRut(true);
       rutErrorTip.style.visibility = "hidden";
     } else {
@@ -106,8 +116,18 @@ const useValidator = () => {
 
   const validateRegisterPassword = (e) => {
     const inputRegisterPassword = e.target.value;
-    const registerPasswordErrorTip = document.getElementById("registerPasswordErrorTip");
-    if (validator.isStrongPassword(inputRegisterPassword,{minLength: 6,minLowercase: 1, minUppercase: 1, minNumbers: 1, minSymbols: 0}) ) {
+    const registerPasswordErrorTip = document.getElementById(
+      "registerPasswordErrorTip"
+    );
+    if (
+      validator.isStrongPassword(inputRegisterPassword, {
+        minLength: 6,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 0,
+      })
+    ) {
       setInputRegisterPassword(inputRegisterPassword);
       setValidatedRegisterPassword(true);
       registerPasswordErrorTip.style.visibility = "hidden";
@@ -119,8 +139,10 @@ const useValidator = () => {
 
   const validatePasswordRepeat = (e) => {
     const inputRepeatPassword = e.target.value;
-    const repeatPasswordErrorTip = document.getElementById("repeatPasswordErrorTip");
-    if (inputRepeatPassword === inputRegisterPassword ) {
+    const repeatPasswordErrorTip = document.getElementById(
+      "repeatPasswordErrorTip"
+    );
+    if (inputRepeatPassword === inputRegisterPassword) {
       setInputRepeatPassword(inputRegisterPassword);
       setValidatedRepeatPassword(true);
       repeatPasswordErrorTip.style.visibility = "hidden";
@@ -175,38 +197,47 @@ const useValidator = () => {
 
   const registerCheck = (e) => {
     e.preventDefault();
-    const newUserErrorTip = document.getElementById("newUserErrorTip");
-    const termsErrorTip = document.getElementById("termsErrorTip");
+    const registerErrorTip = document.getElementById("registerErrorTip");
     if (
       validatedEmail === true &&
-      validatedPassword === true &&
+      validatedRegisterName === true &&
+      validatedRegisterMaterno === true &&
+      validatedRegisterPaterno === true &&
+      validatedRut === true &&
+      validatedRegisterPassword === true &&
+      validatedRepeatPassword === true &&
       checkedTerms === true
     ) {
-      const newUserData = {
+      const registerUserData = {
+        nameData: inputRegisterName,
+        paternoData: inputRegisterPaterno,
+        maternoData: inputRegisterMaterno,
+        rutData: inputRut,
         emailData: inputEmail,
-        passwordData: inputPassword,
+        passwordData: inputRegisterPassword,
       };
-      newUserErrorTip.style.visibility = "hidden";
-      alert(JSON.stringify(newUserData));
+      registerErrorTip.style.visibility = "hidden";
+      alert(JSON.stringify(registerUserData));
+      return (window.location.href = "/");
     } else if (
       validatedEmail === true &&
-      validatedPassword === true &&
-      checkedTerms === true
-    ) {
-      const newUserData = {
-        emailData: inputEmail,
-        passwordData: inputPassword,
-      };
-      newUserErrorTip.style.visibility = "hidden";
-      alert(JSON.stringify(newUserData));
-    } else if (
-      validatedEmail === true &&
-      validatedPassword === true &&
+      validatedRegisterName === true &&
+      validatedRegisterMaterno === true &&
+      validatedRegisterPaterno === true &&
+      validatedRut === true &&
+      validatedRegisterPassword === true &&
+      validatedRepeatPassword === true &&
       checkedTerms === false
     ) {
-      termsErrorTip.style.visibility = "visible";
+      setErrorText(
+        "Debes aceptar los Terminos y Condiciones para poder registrarte"
+      );
+      registerErrorTip.style.visibility = "visible";
     } else {
-      newUserErrorTip.style.visibility = "visible";
+      setErrorText(
+        "Error en los datos de registro. Debes llenar todos los datos correctamente."
+      );
+      registerErrorTip.style.visibility = "visible";
     }
   };
 
@@ -217,8 +248,6 @@ const useValidator = () => {
     inputPassword,
     validatedPassword,
     validatePassword,
-    handleTermsCheckbox,
-    checkedTerms,
     loginCheck,
     validateName,
     validatePaterno,
@@ -226,7 +255,9 @@ const useValidator = () => {
     validateRut,
     validateRegisterPassword,
     validatePasswordRepeat,
-    registerCheck
+    registerCheck,
+    handleTermsCheckbox,
+    errorText,
   };
 };
 export default useValidator;
