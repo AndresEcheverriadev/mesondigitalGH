@@ -1,14 +1,18 @@
-import { redirect } from "react-router-dom";
 import users from "./users.js";
+import { LoginContext } from "./LoginContext.js";
+import { useContext } from "react";
 
 const useDB = () => {
-  const checkUser = async (loginData) => {
+  const { setUserData, SetIsLogged } = useContext(LoginContext);
+
+  const checkUser = async (Data) => {
     const errorNoFound = false;
     try {
-      const { emailData, passwordData } = loginData;
+      const { emailData, passwordData } = Data;
       const found = users.find((user) => user.correo === emailData);
       if (found) {
-        alert(found);
+        setUserData(found.correo);
+        SetIsLogged(true);
         return (window.location.href = "/");
       } else {
         // alert("NO");
