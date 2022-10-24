@@ -33,20 +33,84 @@
 .initSessionBtn {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 70%;
-    height:2.5rem;
+    justify-content:center;
+    align-items:center;
+    width: auto;
+    height:2.5em;
     background-color: var(--azul);
     color: var(--blanco);
     border-style: hidden;
     border-radius: 20px;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    gap: 0.5rem;
+    padding-left: 1em;
+    padding-right: 1em;
+    gap: 5px;
+    z-index: 2;
+}
+
+.sessionIcon {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height:auto;
 }
 
 .initSessionBtn:hover {
     color: var(--azul);
     background-color: var(--verde);
+}
+
+.createUserBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:flex-start;
+    width: 90px;
+    height:2.5em;
+    color: var(--azul);
+    border-style: solid;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+    padding-right: 0.5em;
+    margin-left: -20px;
+    z-index: 1;
+}
+
+.createUserBtn:hover {
+    color: var(--verde);
+}
+
+.createUserBtn p {
+    text-align: left;
+    line-height: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 25px;
+    padding: 0;
+    font-weight: var(--bold);
+}
+
+
+.sessionIndicator {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height:2.5em;
+    color: var(--azul);
+    border-style: solid;
+    border-width: 2px;
+    border-color: var(--azul);
+    border-radius: 20px;
+    padding-left: 1em;
+    padding-right: 1em;
+    gap: 0.5rem;
+    background-color: var(--verde);
+}
+
+.sessionIndicator:hover {
+    background-color:var(--azul);
+    color: var(--blanco);
 }

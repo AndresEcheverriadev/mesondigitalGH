@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import validator from "validator";
-import useDB from "./useDB";
+import { LoginContext } from "./LoginContext";
+import users from "./users.js";
+
 
 const useValidator = () => {
+
+  const [userData,setUserData,isLogged,setIsLogged] = useContext(LoginContext);
+
+
+
+
   const [inputEmail, setinputEmail] = useState("");
   const [validatedEmail, setvalidatedEmail] = useState(false);
   const [inputPassword, setinputPassword] = useState("");
   const [validatedPassword, setvalidatedPassword] = useState(false);
-  const { checkUser } = useDB();
 
   const [inputRegisterName, setInputRegisterName] = useState("");
   const [validatedRegisterName, setValidatedRegisterName] = useState("");
@@ -25,6 +32,8 @@ const useValidator = () => {
   const [validatedRepeatPassword, setValidatedRepeatPassword] = useState("");
   const [checkedTerms, setcheckedTerms] = useState(false);
   const [errorText, setErrorText] = useState("");
+
+  
 
   const validateEmail = (e) => {
     const inputEmail = e.target.value;
@@ -90,29 +99,50 @@ const useValidator = () => {
     }
   };
 
+  const rutVerificador = (rut) => {
+    let M = 0, S=0
+    for(;rut;rut=Math.floor(rut/10))
+      S=(S+rut%10*(9-M++%6))%11;
+    return S?S-1:'k';
+  }
+
+
+  const rutValidator = (rutCompleto) => {
+    rutCompleto = rutCompleto.replace("‐","-");
+    if (!/^[0-9]+[-|‐]{1}[0-9kK]{1}$/.test( rutCompleto ))
+      return false;
+    let tmp   = rutCompleto.split('-');
+    let digv  = tmp[1]; 
+    let rut   = tmp[0];
+    if ( digv == 'K' ) digv = 'k' ;
+    
+    return (rutVerificador(rut) == digv );
+  }
+
+
+
   const validateRut = () => {
     const userRegisterRut = document.getElementById("userRegisterRut");
-    const userRegisterRutVerificador = document.getElementById(
-      "userRegisterRutVerificador"
-    );
     const inputRut = userRegisterRut.value;
-    const inputVerificador = userRegisterRutVerificador.value;
     const rutErrorTip = document.getElementById("rutErrorTip");
     if (
-      validator.isNumeric(inputRut, { no_symbols: true }) &&
-      ((validator.isNumeric(inputVerificador) &&
-        validator.isLength(inputVerificador)) ||
-        inputVerificador === "k" ||
-        inputVerificador === "K")
+     validator.isLength(inputRut,{min:10, max: 10})
     ) {
-      setInputRut(inputRut, inputVerificador);
+      setInputRut(inputRut);
       setValidatedRut(true);
       rutErrorTip.style.visibility = "hidden";
+      rutValidator(inputRut);
     } else {
       setValidatedRut(false);
       rutErrorTip.style.visibility = "visible";
     }
   };
+
+
+
+ 
+
+
 
   const validateRegisterPassword = (e) => {
     const inputRegisterPassword = e.target.value;
@@ -186,14 +216,33 @@ const useValidator = () => {
     if (validatedEmail === true && validatedPassword) {
       const loginData = { emailData: inputEmail, passwordData: inputPassword };
       loginErrorTip.style.visibility = "hidden";
-      checkUser(loginData);
-      if (errorNoFound === true) {
-        alert("Usuario no encontrado");
-      }
+      checkDB();
+      // if (errorNoFound === true) {
+      //   alert("Usuario no encontrado");
+      // }
     } else {
       loginErrorTip.style.visibility = "visible";
     }
   };
+
+  const checkDB =  (loginData) => {
+    const errorNoFound = false;
+    try {
+      const { emailData, passwordData } = loginData;
+      const found = users.find((user) => user.correo === emailData);
+      if (found) {
+        alert('data enviada:'+emailData)
+        setIsLogged(true);
+        setUserData(emailData);
+        alert('data recibida:' + userData + isLogged);
+        return window.location.href = "/" ;
+      } else {
+        alert("NO");
+        return errorNoFound = true;
+      }
+    } catch (error) {}
+  };
+
 
   const registerCheck = (e) => {
     e.preventDefault();
@@ -206,6 +255,7 @@ const useValidator = () => {
       validatedRut === true &&
       validatedRegisterPassword === true &&
       validatedRepeatPassword === true &&
+      rutValidator === true &&
       checkedTerms === true
     ) {
       const registerUserData = {
@@ -233,6 +283,21 @@ const useValidator = () => {
         "Debes aceptar los Terminos y Condiciones para poder registrarte"
       );
       registerErrorTip.style.visibility = "visible";
+    } else if (
+      validatedEmail === true &&
+      validatedRegisterName === true &&
+      validatedRegisterMaterno === true &&
+      validatedRegisterPaterno === true &&
+      validatedRut === true &&
+      validatedRegisterPassword === true &&
+      validatedRepeatPassword === true &&
+      checkedTerms === true &&
+      rutValidator === false 
+    ) {
+      setErrorText(
+        "Número de Rut Inválido"
+      );
+      registerErrorTip.style.visibility = "visible"; 
     } else {
       setErrorText(
         "Error en los datos de registro. Debes llenar todos los datos correctamente."
@@ -249,6 +314,7 @@ const useValidator = () => {
     validatedPassword,
     validatePassword,
     loginCheck,
+    checkDB,
     validateName,
     validatePaterno,
     validateMaterno,

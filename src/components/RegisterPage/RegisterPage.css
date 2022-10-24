@@ -96,23 +96,8 @@
 }
 
 #userRegisterRut {
-  width: 80%;
+  width: 100%;
   height: auto;
-}
-
-#userRegisterRutVerificador {
-  width: 10%;
-  height: auto;
-}
-
-.inputRutContainer input::-webkit-outer-spin-button,
-.inputRutContainer input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-.inputRutContainer input[type="number"] {
-  -moz-appearance: textfield;
 }
 
 #registerPasswordErrorTip {

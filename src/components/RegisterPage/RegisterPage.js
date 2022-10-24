@@ -86,24 +86,15 @@ function RegisterPage() {
               </label>
               <div className="inputRutContainer">
                 <input
-                  type="number"
+                  type="text"
                   class="form-control"
                   id="userRegisterRut"
                   aria-describedby="userRegisterRut"
                   onChange={validateRut}
                 />
-                <p />-
-                <input
-                  type="text"
-                  class="form-control"
-                  id="userRegisterRutVerificador"
-                  aria-describedby="userRegisterRutVerificador"
-                  maxlength="1"
-                  onChange={validateRut}
-                />
               </div>
 
-              <ErrorTip errorText="Rut no válido" name="rutErrorTip" />
+              <ErrorTip errorText={"Rut sin puntos y con guion.Ejemplo:12345678-5"} name="rutErrorTip" />
             </div>
 
             {/* <div className="disclaimerContainer">
