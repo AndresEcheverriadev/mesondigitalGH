@@ -1,43 +1,79 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import logoLogin from "../../images/logo.svg";
+import Navbar from "../Navbar/Navbar";
+import UserLinks from "./UserLinks.js";
+import UserPageId from "./UserPageId";
 import useValidator from "../../meta/useValidator";
 import ErrorTip from "../ErrorTip/ErrorTip";
-import "./RegisterPage.css";
-import "./RegisterPageResponsive.css";
+import "./UserPage.css";
 
-function RegisterPage() {
+function UserPageCuenta({ user }) {
   const {
     validateName,
     validatePaterno,
     validateMaterno,
     validateRut,
     validateEmail,
-    validateRegisterPassword,
+    validatePassword,
     validatePasswordRepeat,
-    registerCheck,
-    handleTermsCheckbox,
+    updateUserCheck,
     errorText,
+    modalText,
   } = useValidator();
   return (
-    <div className="loginPageMainWrapper">
-      <div className="viewRegisterPageWrapper">
-        <header className="headerLoginContainer">
-          <NavLink to="/" className="loginLogoContainer">
-            <img src={logoLogin} alt="" />
-          </NavLink>
-        </header>
-        <form className="userRegisterFormContainer">
-          <div className="personalDataContainer">
-            <div class="mb-3">
-              <label for="userRegisterName" className="form-label">
+    <div className="userPageMainWrapper">
+      <div
+        class="modal fade"
+        id="modalUpdate"
+        tabindex="-1"
+        aria-labelledby="modalUpdate"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <h5>{modalText}</h5>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary btnModal"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <header className="userPageHeaderContainer">
+        <Navbar />
+      </header>
+      <div className="userPageMain">
+        <UserPageId user={user} />
+        <div className="userMenu">
+          <UserLinks activelink="cuenta" />
+        </div>
+        <form className="userPageDataWrapper">
+          <div className="userPagePersonalDataContainer">
+            <div class="inputWrapper">
+              <label for="userUpdateName" className="form-label">
                 Nombre
               </label>
               <input
                 type="text"
                 class="form-control"
-                id="userRegisterName"
-                aria-describedby="userRegisterName"
+                id="userUpdateName"
+                aria-describedby="userUpdateName"
                 onChange={validateName}
               />
               <ErrorTip
@@ -46,15 +82,15 @@ function RegisterPage() {
               />
             </div>
 
-            <div class="mb-3">
-              <label for="userRegisterPaterno" className="form-label">
+            <div class="inputWrapper">
+              <label for="userUpdatePaterno" className="form-label">
                 Apellido Paterno
               </label>
               <input
                 type="text"
                 class="form-control"
-                id="userRegisterPaterno"
-                aria-describedby="userRegisterPaterno"
+                id="userUpdatePaterno"
+                aria-describedby="userUpdatePaterno"
                 onChange={validatePaterno}
               />
               <ErrorTip
@@ -63,15 +99,15 @@ function RegisterPage() {
               />
             </div>
 
-            <div class="mb-3">
-              <label for="userRegisterMaterno" className="form-label">
+            <div class="inputWrapper">
+              <label for="userUpdateMaterno" className="form-label">
                 Apellido Materno
               </label>
               <input
                 type="text"
                 class="form-control"
-                id="userRegisterPaterno"
-                aria-describedby="userRegisterMaterno"
+                id="userUpdatePaterno"
+                aria-describedby="userUpdateMaterno"
                 onChange={validateMaterno}
               />
               <ErrorTip
@@ -80,16 +116,16 @@ function RegisterPage() {
               />
             </div>
 
-            <div class="mb-3">
-              <label for="userRegisterRut" className="form-label">
+            <div class="inputWrapper">
+              <label for="userUpdateRut" className="form-label">
                 RUT
               </label>
-              <div className="inputRutContainer">
+              <div className="inputUpdateRutContainer">
                 <input
                   type="text"
                   class="form-control"
-                  id="userRegisterRut"
-                  aria-describedby="userRegisterRut"
+                  id="userUpdateRut"
+                  aria-describedby="userUpdateRut"
                   onChange={validateRut}
                 />
               </div>
@@ -99,24 +135,17 @@ function RegisterPage() {
                 name="rutErrorTip"
               />
             </div>
-
-            {/* <div className="disclaimerContainer">
-              <p>
-                Tus datos personales serán usados para agilizar la creación de
-                documentos.
-              </p>
-            </div> */}
           </div>
 
-          <div className="registerDataContainer">
-            <div class="mb-3">
-              <label for="userLoginInputEmail" className="form-label">
+          <div className="userPageUpdateDataContainer">
+            <div class="inputWrapper">
+              <label for="userUpdateInputEmail" className="form-label">
                 Correo electrónico
               </label>
               <input
                 type="email"
                 class="form-control"
-                id="userLoginInputEmail"
+                id="userUpdateInputEmail"
                 aria-describedby="emailHelp"
                 onChange={validateEmail}
               />
@@ -125,30 +154,30 @@ function RegisterPage() {
                 name="emailErrorTip"
               />
             </div>
-            <div class="mb-3">
-              <label for="userRegisterInputPassword" className="form-label">
+            <div class="inputWrapper">
+              <label for="userUpdateInputPassword" className="form-label">
                 Contraseña
               </label>
               <input
                 type="password"
                 class="form-control"
-                id="userRegisterInputPassword"
-                onChange={validateRegisterPassword}
+                id="userUpdateInputPassword"
+                onChange={validatePassword}
               />
               <ErrorTip
                 errorText="Tu contraseña debe ser de 6 caracteres de largo mínimo y debe contener números y letras mayusculas/minusculas"
-                name="registerPasswordErrorTip"
+                name="passwordErrorTip"
               />
             </div>
 
-            <div class="mb-3">
-              <label for="userRegisterPasswordRepeat" className="form-label">
+            <div class="inputWrapper">
+              <label for="userUpdatePasswordRepeat" className="form-label">
                 Repetir Contraseña
               </label>
               <input
                 type="password"
                 class="form-control"
-                id="userRegisterPasswordRepeat"
+                id="userUpdatePasswordRepeat"
                 onChange={validatePasswordRepeat}
               />
               <ErrorTip
@@ -156,32 +185,19 @@ function RegisterPage() {
                 name="repeatPasswordErrorTip"
               />
             </div>
+            <div className="userUpdateButtonsContainer">
+              {/* <div className="userUpdateTipWrapper">
+                <ErrorTip errorText={errorText} name="registerErrorTip" />
+              </div> */}
 
-            <div class="termsCheckboxContainer">
-              <input
-                type="checkbox"
-                id="termsCheckbox"
-                onClick={handleTermsCheckbox}
-              />
-              <p>
-                Acepto los <NavLink to="/">Términos y Condiciones</NavLink> de
-                uso del sitio web
-              </p>
-            </div>
-          </div>
-
-          <div className="userRegisterButtonsContainer">
-            <div className="userRegisterTipWrapper">
-              <ErrorTip errorText={errorText} name="registerErrorTip" />
-            </div>
-
-            <div className="userRegisterButtonsWrapper">
               <button
                 type="submit"
-                className="btn userRegisterForm--btnRegister"
-                onClick={registerCheck}
+                className="btn userUpdateBtn"
+                onClick={updateUserCheck}
+                data-bs-toggle="modal"
+                data-bs-target="#modalUpdate"
               >
-                Crear cuenta
+                Actualizar Datos
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -197,9 +213,6 @@ function RegisterPage() {
                   />
                 </svg>
               </button>
-              <NavLink to="/login" className="btn userRegisterForm--btnLogin">
-                Ya tengo cuenta
-              </NavLink>
             </div>
           </div>
         </form>
@@ -208,4 +221,4 @@ function RegisterPage() {
   );
 }
 
-export default RegisterPage;
+export default UserPageCuenta;

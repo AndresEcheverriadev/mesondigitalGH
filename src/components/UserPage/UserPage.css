@@ -1,0 +1,210 @@
+.userPageMainWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.userPageHeaderContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.userPageMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 95%;
+  height: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-style: hidden;
+  border-radius: 5px;
+  border-color: var(--negro);
+  color: var(--negro);
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.welcomeText {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 85%;
+  height: auto;
+  padding: 10px;
+  margin: 5px;
+}
+
+.userMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 85%;
+  height: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-style: hidden;
+  border-radius: 5px;
+  padding: 20px;
+  gap: 20px;
+  background-color: var(--blanco);
+}
+
+.userLink {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#activeLink {
+  border-radius: 30px;
+  background-color: var(--azul);
+  color: var(--blanco);
+}
+
+.userDataContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 85%;
+  height: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-style: hidden;
+  border-radius: 5px;
+  padding: 20px;
+  gap: 20px;
+  background-color: var(--blanco);
+}
+
+/* UserPageCuentasCSS */
+
+.userPageDataWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 85%;
+  height: auto;
+  text-align: left;
+  font-size: var(--p);
+  background-color: var(--blanco);
+  border-style: hidden;
+  border-radius: 5px;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: 5px;
+}
+
+.userPagePersonalDataContainer,
+.userPageUpdateDataContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40%;
+  height: auto;
+}
+
+.inputWrapper {
+  width: 100%;
+  height: auto;
+  padding: 5px;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  border-style: hidden;
+  border-radius: 20px;
+}
+
+.inputWrapper input {
+  border-style: solid;
+  border-width: 2px;
+  background-color: var(--grisLight);
+}
+
+.inputUpdateRutContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+#userUpdateRut {
+  width: 100%;
+  height: auto;
+}
+
+#updatePasswordErrorTip {
+  font-size: 12px;
+}
+
+#paternoErrorTip {
+  margin-bottom: 20px;
+}
+
+.userUpdateButtonsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin-top: 32px;
+}
+
+.userUpdateBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 2.5rem;
+  border-style: hidden;
+  border-radius: 20px;
+  font-weight: var(--bold);
+  font-size: var(--p);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  gap: 0.5rem;
+  background-color: var(--azul);
+  color: var(--blanco);
+}
+
+.userUpdateBtn:hover,
+.userUpdateBtn:focus {
+  background-color: var(--verde);
+  color: var(--azul);
+}
+
+.modal-content {
+  color: var(--azul);
+}
+
+.modal-header,
+.modal-footer {
+  border-style: hidden !important;
+}
+
+.btnModal {
+  background-color: var(--azul);
+  font-family: "Poppins", sans-serif;
+}

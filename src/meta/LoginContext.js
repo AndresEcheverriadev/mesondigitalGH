@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 import  {createContext, useState } from "react";
 
-export const LoginContext = createContext([]);
+const LoginContext = createContext();
 
 function LoginContextProvider({ children }) {
 
@@ -34,5 +34,5 @@ function LoginContextProvider({ children }) {
   );
 }
 
-export default LoginContextProvider;
+export  {LoginContext,LoginContextProvider};
  

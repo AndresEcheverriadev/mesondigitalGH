@@ -3,25 +3,30 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import LoginPage from "./components/LoginPage/LoginPage";
 import RegisterPage from "./components/RegisterPage/RegisterPage";
-import LoginContextProvider from "./meta/LoginContext.js";
+import { LoginContextProvider } from "./meta/LoginContext.js";
+import UserPage from "./components/UserPage/UserPage.js";
+import UserPageCuenta from "./components/UserPage/UserPageCuenta.js";
+import UserPageTramites from "./components/UserPage/UserPageTramites.js";
+import UserPageDocumentos from "./components/UserPage/UserPageDocumentos.js";
 import "./App.css";
-
 
 function App() {
   return (
     <BrowserRouter>
-      {/* <LoginContextProvider > */}
-
+      <LoginContextProvider>
         <div className="App">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/crear-cuenta" element={<RegisterPage />} />
+            <Route path="/perfil" element={<UserPage />} />
+            <Route path="/perfil-cuenta" element={<UserPageCuenta />} />
+            <Route path="/perfil-tramites" element={<UserPageTramites />} />
+            <Route path="/perfil-documentos" element={<UserPageDocumentos />} />
             <Route path="/*" element={<Navigate to="/" />} />
           </Routes>
         </div>
-
-      {/* </LoginContextProvider> */}
+      </LoginContextProvider>
     </BrowserRouter>
   );
 }

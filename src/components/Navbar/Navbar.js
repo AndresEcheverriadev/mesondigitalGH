@@ -8,7 +8,7 @@ import "./NavbarResponsive.css";
 
 function Navbar() {
   // const {isLogged,userData } = useContext(LoginContext);
-  const isLogged = false;
+  const isLogged = true;
   const userData = 'Andres Echeverría'
 
   // useEffect(() => {
