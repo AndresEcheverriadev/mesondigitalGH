@@ -137,7 +137,7 @@ function RegisterPage() {
               />
               <ErrorTip
                 errorText="Tu contraseña debe ser de 6 caracteres de largo mínimo y debe contener números y letras mayusculas/minusculas"
-                name="registerPasswordErrorTip"
+                name="passwordErrorTip"
               />
             </div>
 

@@ -7,9 +7,47 @@ import "./LoginPage.css";
 import "./LoginPageResponsive.css";
 
 function LoginPage() {
-  const { validateEmail, validatePassword, loginCheck } = useValidator();
+  const {
+    validateEmail,
+    validatePassword,
+    loginCheck,
+    modalText,
+  } = useValidator();
   return (
     <div className="loginPageMainWrapper">
+      <div
+        class="modal fade"
+        id="modalLoginUser"
+        tabindex="-1"
+        aria-labelledby="modalLoginUser"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <h5>{modalText}</h5>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary btnModal"
+                data-bs-dismiss="modal"
+              >
+                Cerrar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="viewloginPageWrapper">
         <header className="headerLoginContainer">
           <NavLink to="/" className="loginLogoContainer">
@@ -57,6 +95,8 @@ function LoginPage() {
               type="submit"
               className="btn userLoginForm--btnSession"
               onClick={loginCheck}
+              data-bs-toggle="modal"
+              data-bs-target="#modalLoginUser"
             >
               Iniciar sesión
               <svg

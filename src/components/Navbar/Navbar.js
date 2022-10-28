@@ -2,18 +2,18 @@ import React, { useEffect } from "react";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import Logo from "../../images/logo.svg";
-import { LoginContext } from "../../meta/LoginContext.js";
+import { LoginContext } from "../Context/LoginContext.js";
 import "./Navbar.css";
 import "./NavbarResponsive.css";
 
 function Navbar() {
-  // const {isLogged,userData } = useContext(LoginContext);
-  const isLogged = true;
-  const userData = 'Andres Echeverría'
+  const { isLogged, userData, loginAuth } = useContext(LoginContext);
+  // const isLogged = true;
+  // const userData = 'Andres Echeverría'
 
-  // useEffect(() => {
-  //   setUserLogged();
-  // },[userData]);
+  useEffect(() => {
+    loginAuth();
+  }, [userData]);
 
   return (
     <nav class="navbar navbar-expand-lg bg-light navbarMainContainer">
@@ -97,19 +97,14 @@ function Navbar() {
                 />
               </svg>
               Iniciar sesión
-            
-          
             </NavLink>
             <NavLink to="/crear-cuenta" className="createUserBtn">
               <div>
                 <p>Crear</p>
                 <p>cuenta</p>
               </div>
-       
-          
-        
-          </NavLink>
-         </>
+            </NavLink>
+          </>
         )}
       </div>
     </nav>

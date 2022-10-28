@@ -1,21 +1,15 @@
 import { useContext, useState } from "react";
 import validator from "validator";
-import { LoginContext } from "./LoginContext";
+import { LoginContext } from "../components/Context/LoginContext.js";
 import users from "./users.js";
 
 const useValidator = () => {
-  const {
-    userData,
-    setUserData,
-    isLogged,
-    setIsLogged,
-    handlerUserLogged,
-  } = useContext(LoginContext);
+  const { setUserData, SetIsLogged } = useContext(LoginContext);
 
   const [inputEmail, setinputEmail] = useState("");
   const [validatedEmail, setvalidatedEmail] = useState(false);
   const [inputPassword, setinputPassword] = useState("");
-  const [validatedPassword, setvalidatedPassword] = useState(false);
+  const [validatedPassword, setValidatedPassword] = useState(false);
 
   const [inputRegisterName, setInputRegisterName] = useState("");
   const [validatedRegisterName, setValidatedRegisterName] = useState("");
@@ -48,6 +42,24 @@ const useValidator = () => {
     } else {
       setvalidatedEmail(false);
       emailErrorTip.style.visibility = "visible";
+    }
+  };
+
+  const validatePassword = (e) => {
+    const inputPassword = e.target.value;
+    if (
+      validator.isStrongPassword(inputPassword, {
+        minLength: 6,
+        minLowercase: 1,
+        minUppercase: 1,
+        minNumbers: 1,
+        minSymbols: 0,
+      })
+    ) {
+      setValidatedPassword(true);
+      setinputPassword(inputPassword);
+    } else {
+      setValidatedPassword(false);
     }
   };
 
@@ -125,14 +137,14 @@ const useValidator = () => {
       setInputRut(inputRut);
       setValidatedRut(true);
       rutErrorTip.style.visibility = "hidden";
-      rutValidator(inputRut);
+      // rutValidator(inputRut);
     } else {
       setValidatedRut(false);
       rutErrorTip.style.visibility = "visible";
     }
   };
 
-  const validatePassword = (e) => {
+  const validateRegisterPassword = (e) => {
     const inputRegisterPassword = e.target.value;
     const passwordErrorTip = document.getElementById("passwordErrorTip");
     if (
@@ -173,33 +185,32 @@ const useValidator = () => {
   };
 
   const loginCheck = (e) => {
-    const errorNoFound = false;
     e.preventDefault();
     const loginErrorTip = document.getElementById("loginErrorTip");
     if (validatedEmail === true && validatedPassword) {
       const loginData = { emailData: inputEmail, passwordData: inputPassword };
       loginErrorTip.style.visibility = "hidden";
       checkDB(loginData);
-      // if (errorNoFound === true) {
-      //   alert("Usuario no encontrado");
-      // }
     } else {
       loginErrorTip.style.visibility = "visible";
     }
   };
 
   const checkDB = (loginData) => {
-    const errorNoFound = false;
     const { emailData, passwordData } = loginData;
     const found = users.find((user) => user.correo === emailData);
     if (found) {
       alert("data enviada:" + emailData);
-      handlerUserLogged();
       alert("data recibida");
-      return;
+      SetIsLogged(true);
+      setUserData(emailData);
+      setModalText("Ingreso Correcto.Bienvenido");
+      // data-bs-toggle="modal"
+      // data-bs-target="#modalUpdate"
+      // window.location.href = "/";
     } else {
-      alert("NO");
-      return (errorNoFound = true);
+      setModalText("Credenciales no válidas");
+      return (window.location.href = "/login");
     }
   };
 
@@ -226,6 +237,7 @@ const useValidator = () => {
         passwordData: inputRegisterPassword,
       };
       registerErrorTip.style.visibility = "hidden";
+      // setModalText("Registro exitoso");
       alert(JSON.stringify(registerUserData));
       return (window.location.href = "/");
     } else if (
@@ -253,7 +265,8 @@ const useValidator = () => {
       checkedTerms === true &&
       rutValidator === false
     ) {
-      setErrorText("Número de Rut Inválido");
+      setErrorText("Rut inválido");
+      // setModalText("Rut inválido");
       registerErrorTip.style.visibility = "visible";
     } else {
       setErrorText(
@@ -305,18 +318,18 @@ const useValidator = () => {
 
   return {
     inputEmail,
-    validatedEmail,
     validateEmail,
+    validatedEmail,
     inputPassword,
-    validatedPassword,
     validatePassword,
+    validatedPassword,
     loginCheck,
     checkDB,
     validateName,
     validatePaterno,
     validateMaterno,
     validateRut,
-    validatePassword,
+    validateRegisterPassword,
     validatePasswordRepeat,
     registerCheck,
     updateUserCheck,

@@ -3,7 +3,7 @@ import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import LoginPage from "./components/LoginPage/LoginPage";
 import RegisterPage from "./components/RegisterPage/RegisterPage";
-import { LoginContextProvider } from "./meta/LoginContext.js";
+import { LoginContextProvider } from "../src/components/Context/LoginContext.js";
 import UserPage from "./components/UserPage/UserPage.js";
 import UserPageCuenta from "./components/UserPage/UserPageCuenta.js";
 import UserPageTramites from "./components/UserPage/UserPageTramites.js";
