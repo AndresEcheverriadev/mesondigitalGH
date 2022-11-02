@@ -71,11 +71,10 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height:auto;
+  height: auto;
   justify-content: center;
   gap: 10px;
   align-items: center;
-
 }
 
 .userLoginForm--btnSession,
@@ -112,4 +111,28 @@
 .userLoginForm--btnCreate:hover {
   background-color: var(--verde);
   color: var(--azul);
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+}
+
+.modalIcon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: auto;
+}
+
+.modalIcon img,
+.xIcon {
+  width: 100%;
+  height: auto;
 }

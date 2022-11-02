@@ -28,6 +28,8 @@ const useValidator = () => {
   const [checkedTerms, setcheckedTerms] = useState(false);
   const [errorText, setErrorText] = useState("");
   const [modalText, setModalText] = useState("");
+  const [modalIconCheck, setModalIconCheck] = useState(false);
+  const [modalIconError, setModalIconError] = useState(false);
 
   const validateEmail = (e) => {
     const inputEmail = e.target.value;
@@ -200,17 +202,19 @@ const useValidator = () => {
     const { emailData, passwordData } = loginData;
     const found = users.find((user) => user.correo === emailData);
     if (found) {
-      alert("data enviada:" + emailData);
-      alert("data recibida");
+      // alert("data enviada:" + emailData);
+      // alert("data recibida");
       SetIsLogged(true);
       setUserData(emailData);
-      setModalText("Ingreso Correcto.Bienvenido");
-      // data-bs-toggle="modal"
-      // data-bs-target="#modalUpdate"
-      // window.location.href = "/";
+      setModalText("Ingreso Correcto. Bienvenido.");
+      setModalIconCheck(true);
+      setModalIconError(false);
+      return setTimeout(() => (window.location.href = "/"), 2000);
     } else {
       setModalText("Credenciales no válidas");
-      return (window.location.href = "/login");
+      setModalIconCheck(false);
+      setModalIconError(true);
+      return setTimeout(() => (window.location.href = "/login"), 2000);
     }
   };
 
@@ -336,6 +340,8 @@ const useValidator = () => {
     handleTermsCheckbox,
     errorText,
     modalText,
+    modalIconCheck,
+    modalIconError,
   };
 };
 export default useValidator;

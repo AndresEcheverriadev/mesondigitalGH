@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import logoLogin from "../../images/logo.svg";
 import useValidator from "../../meta/useValidator";
 import ErrorTip from "../ErrorTip/ErrorTip";
+import logoCheck from "../../images/check.svg";
 import "./LoginPage.css";
 import "./LoginPageResponsive.css";
 
@@ -12,6 +13,8 @@ function LoginPage() {
     validatePassword,
     loginCheck,
     modalText,
+    modalIconCheck,
+    modalIconError,
   } = useValidator();
   return (
     <div className="loginPageMainWrapper">
@@ -33,6 +36,21 @@ function LoginPage() {
               ></button>
             </div>
             <div class="modal-body">
+              <div className="modalIcon">
+                {modalIconCheck === true ? <img src={logoCheck}></img> : null}
+                {modalIconError === true ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    fill="currentColor"
+                    className="bi bi-x xIcon"
+                    viewBox="0 0 16 16"
+                  >
+                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
+                  </svg>
+                ) : null}
+              </div>
               <h5>{modalText}</h5>
             </div>
             <div class="modal-footer">
