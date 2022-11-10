@@ -8,12 +8,10 @@ import "./NavbarResponsive.css";
 
 function Navbar() {
   const { isLogged, userData, loginAuth } = useContext(LoginContext);
-  // const isLogged = true;
-  // const userData = 'Andres Echeverría'
 
-  useEffect(() => {
-    loginAuth();
-  }, [userData]);
+  // useEffect(() => {
+  //   loginAuth();
+  // }, [isLogged]);
 
   return (
     <nav class="navbar navbar-expand-lg bg-light navbarMainContainer">

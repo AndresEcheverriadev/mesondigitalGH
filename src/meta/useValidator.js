@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import validator from "validator";
 import { LoginContext } from "../components/Context/LoginContext.js";
 import users from "./users.js";
@@ -30,6 +31,13 @@ const useValidator = () => {
   const [modalText, setModalText] = useState("");
   const [modalIconCheck, setModalIconCheck] = useState(false);
   const [modalIconError, setModalIconError] = useState(false);
+  const [modalName, setModalName] = useState("");
+
+  const modalActivator = (name) => {
+    setModalName(name);
+  };
+
+  const navigate = useNavigate();
 
   const validateEmail = (e) => {
     const inputEmail = e.target.value;
@@ -190,6 +198,7 @@ const useValidator = () => {
     e.preventDefault();
     const loginErrorTip = document.getElementById("loginErrorTip");
     if (validatedEmail === true && validatedPassword) {
+      setModalName("modalLoginUser");
       const loginData = { emailData: inputEmail, passwordData: inputPassword };
       loginErrorTip.style.visibility = "hidden";
       checkDB(loginData);
@@ -201,15 +210,16 @@ const useValidator = () => {
   const checkDB = (loginData) => {
     const { emailData, passwordData } = loginData;
     const found = users.find((user) => user.correo === emailData);
+    const modalLogin = document.getElementById("modalLoginUser");
     if (found) {
-      // alert("data enviada:" + emailData);
-      // alert("data recibida");
       SetIsLogged(true);
       setUserData(emailData);
       setModalText("Ingreso Correcto. Bienvenido.");
       setModalIconCheck(true);
       setModalIconError(false);
-      return setTimeout(() => (window.location.href = "/"), 2000);
+      // setTimeout(() => (window.location.href = "/"), 1000);
+      setTimeout(() => modalLogin.hide(), 1000);
+      navigate("/");
     } else {
       setModalText("Credenciales no válidas");
       setModalIconCheck(false);
@@ -219,7 +229,7 @@ const useValidator = () => {
   };
 
   const registerCheck = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     const registerErrorTip = document.getElementById("registerErrorTip");
     if (
       validatedEmail === true &&
@@ -342,6 +352,8 @@ const useValidator = () => {
     modalText,
     modalIconCheck,
     modalIconError,
+    modalName,
+    modalActivator,
   };
 };
 export default useValidator;

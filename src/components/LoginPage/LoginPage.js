@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import logoLogin from "../../images/logo.svg";
 import useValidator from "../../meta/useValidator";
@@ -15,12 +15,21 @@ function LoginPage() {
     modalText,
     modalIconCheck,
     modalIconError,
+    modalName,
+    setModalName,
+    modalActivator,
   } = useValidator();
+
+  useEffect(() => {
+    modalActivator("modalLoginUser");
+  });
+
   return (
     <div className="loginPageMainWrapper">
       <div
         class="modal fade"
-        id="modalLoginUser"
+        // id="modalLoginUser"
+        id={modalName}
         tabindex="-1"
         aria-labelledby="modalLoginUser"
         aria-hidden="true"
@@ -28,12 +37,12 @@ function LoginPage() {
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <button
+              {/* <button
                 type="button"
                 class="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
-              ></button>
+              ></button> */}
             </div>
             <div class="modal-body">
               <div className="modalIcon">
@@ -54,13 +63,13 @@ function LoginPage() {
               <h5>{modalText}</h5>
             </div>
             <div class="modal-footer">
-              <button
+              {/* <button
                 type="button"
                 class="btn btn-secondary btnModal"
                 data-bs-dismiss="modal"
               >
                 Cerrar
-              </button>
+              </button> */}
             </div>
           </div>
         </div>
@@ -115,6 +124,7 @@ function LoginPage() {
               onClick={loginCheck}
               data-bs-toggle="modal"
               data-bs-target="#modalLoginUser"
+              id="loginButton"
             >
               Iniciar sesión
               <svg
