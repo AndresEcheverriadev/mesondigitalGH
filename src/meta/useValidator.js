@@ -5,7 +5,7 @@ import { LoginContext } from "../components/Context/LoginContext.js";
 import users from "./users.js";
 
 const useValidator = () => {
-  const { setUserData, SetIsLogged } = useContext(LoginContext);
+  const { setUserData } = useContext(LoginContext);
 
   const [inputEmail, setinputEmail] = useState("");
   const [validatedEmail, setvalidatedEmail] = useState(false);
@@ -32,10 +32,7 @@ const useValidator = () => {
   const [modalIconCheck, setModalIconCheck] = useState(false);
   const [modalIconError, setModalIconError] = useState(false);
   const [modalName, setModalName] = useState("");
-
-  const modalActivator = (name) => {
-    setModalName(name);
-  };
+  const [activeModal, setActiveModal] = useState(false);
 
   const navigate = useNavigate();
 
@@ -198,33 +195,35 @@ const useValidator = () => {
     e.preventDefault();
     const loginErrorTip = document.getElementById("loginErrorTip");
     if (validatedEmail === true && validatedPassword) {
-      setModalName("modalLoginUser");
       const loginData = { emailData: inputEmail, passwordData: inputPassword };
       loginErrorTip.style.visibility = "hidden";
       checkDB(loginData);
     } else {
+      setErrorText("Debes ingresar tus datos correctamente");
       loginErrorTip.style.visibility = "visible";
     }
   };
 
   const checkDB = (loginData) => {
+    const loginErrorTip = document.getElementById("loginErrorTip");
     const { emailData, passwordData } = loginData;
     const found = users.find((user) => user.correo === emailData);
-    const modalLogin = document.getElementById("modalLoginUser");
     if (found) {
-      SetIsLogged(true);
-      setUserData(emailData);
-      setModalText("Ingreso Correcto. Bienvenido.");
-      setModalIconCheck(true);
-      setModalIconError(false);
-      // setTimeout(() => (window.location.href = "/"), 1000);
-      setTimeout(() => modalLogin.hide(), 1000);
+      console.log(found);
+      loginErrorTip.style.visibility = "hidden";
+      setUserData((prev) => ({
+        ...prev,
+        userMail: found.correo,
+        userNombre: found.nombre,
+        userPaterno: found.paterno,
+        userMaterno: found.materno,
+        userRut: found.rut,
+      }));
       navigate("/");
     } else {
-      setModalText("Credenciales no válidas");
-      setModalIconCheck(false);
-      setModalIconError(true);
-      return setTimeout(() => (window.location.href = "/login"), 2000);
+      setErrorText("Credenciales incorrectas");
+      loginErrorTip.style.visibility = "visible";
+      return setTimeout(() => window.location.reload(false), 2000);
     }
   };
 
@@ -353,7 +352,7 @@ const useValidator = () => {
     modalIconCheck,
     modalIconError,
     modalName,
-    modalActivator,
+    activeModal,
   };
 };
 export default useValidator;

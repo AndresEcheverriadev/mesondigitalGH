@@ -24,6 +24,7 @@ function App() {
             <Route path="/perfil-tramites" element={<UserPageTramites />} />
             <Route path="/perfil-documentos" element={<UserPageDocumentos />} />
             <Route path="/*" element={<Navigate to="/" />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>
       </LoginContextProvider>

@@ -12,69 +12,11 @@ function LoginPage() {
     validateEmail,
     validatePassword,
     loginCheck,
-    modalText,
-    modalIconCheck,
-    modalIconError,
-    modalName,
-    setModalName,
-    modalActivator,
+    errorText,
   } = useValidator();
-
-  useEffect(() => {
-    modalActivator("modalLoginUser");
-  });
 
   return (
     <div className="loginPageMainWrapper">
-      <div
-        class="modal fade"
-        // id="modalLoginUser"
-        id={modalName}
-        tabindex="-1"
-        aria-labelledby="modalLoginUser"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              {/* <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button> */}
-            </div>
-            <div class="modal-body">
-              <div className="modalIcon">
-                {modalIconCheck === true ? <img src={logoCheck}></img> : null}
-                {modalIconError === true ? (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="16"
-                    height="16"
-                    fill="currentColor"
-                    className="bi bi-x xIcon"
-                    viewBox="0 0 16 16"
-                  >
-                    <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
-                  </svg>
-                ) : null}
-              </div>
-              <h5>{modalText}</h5>
-            </div>
-            <div class="modal-footer">
-              {/* <button
-                type="button"
-                class="btn btn-secondary btnModal"
-                data-bs-dismiss="modal"
-              >
-                Cerrar
-              </button> */}
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="viewloginPageWrapper">
         <header className="headerLoginContainer">
           <NavLink to="/" className="loginLogoContainer">
@@ -111,10 +53,7 @@ function LoginPage() {
             <NavLink to="/" className="form-check--passRecover">
               Recuperar contraseña
             </NavLink>
-            <ErrorTip
-              errorText="Debes ingresar tus datos correctamente"
-              name="loginErrorTip"
-            />
+            <ErrorTip errorText={errorText} name="loginErrorTip" />
           </div>
 
           <div className="userLoginForm--buttonsContainer">
@@ -122,8 +61,6 @@ function LoginPage() {
               type="submit"
               className="btn userLoginForm--btnSession"
               onClick={loginCheck}
-              data-bs-toggle="modal"
-              data-bs-target="#modalLoginUser"
               id="loginButton"
             >
               Iniciar sesión
@@ -142,6 +79,7 @@ function LoginPage() {
                 />
               </svg>
             </button>
+
             <NavLink
               to="/crear-cuenta"
               className="btn userLoginForm--btnCreate"

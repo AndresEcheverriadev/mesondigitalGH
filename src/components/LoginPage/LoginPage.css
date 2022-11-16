@@ -99,9 +99,10 @@
   color: var(--blanco);
 }
 
-.userLoginForm--btnSession:hover {
-  background-color: var(--verde);
-  color: var(--azul);
+.userLoginForm--btnSession:hover,
+.userLoginForm--btnSession:active {
+  background-color: var(--verde) !important;
+  color: var(--azul) !important;
 }
 
 .userLoginForm--btnCreate {

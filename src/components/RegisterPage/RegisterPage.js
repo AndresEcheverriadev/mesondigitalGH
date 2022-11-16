@@ -86,6 +86,7 @@ function RegisterPage() {
               </label>
               <div className="inputRutContainer">
                 <input
+                  pattern="\d{3,8}-[\d|kK]{1}"
                   type="text"
                   class="form-control"
                   id="userRegisterRut"

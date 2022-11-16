@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { LoginContext } from "../Context/LoginContext.js";
 
 function UserLinks({ activelink }) {
+  const { loginOut } = useContext(LoginContext);
+
   return (
-    <>
+    <div className="userLinksWrapper">
       <NavLink
         className="userLink"
         id={activelink === "inicio" ? "activeLink" : ""}
@@ -32,7 +35,11 @@ function UserLinks({ activelink }) {
       >
         Mis documentos
       </NavLink>
-    </>
+
+      <button className="userLink btnLogout" id="btnLogout" onClick={loginOut}>
+        Cerrar sesión
+      </button>
+    </div>
   );
 }
 

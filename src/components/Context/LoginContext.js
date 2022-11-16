@@ -1,28 +1,43 @@
 import React from "react";
 import { createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const LoginContext = createContext([]);
 
 function LoginContextProvider({ children }) {
-  const [userData, setUserData] = useState("");
-  const [isLogged, SetIsLogged] = useState(false);
+  const [userData, setUserData] = useState({
+    isLogged: false,
+    userMail: "",
+    userNombre: "",
+    userCorreo: "",
+    userMaterno: "",
+    userPaterno: "",
+    userRut: "",
+    userTipo: "",
+  });
+
+  const navigate = useNavigate();
 
   const loginAuth = () => {
-    if (userData === "") {
-      SetIsLogged(false);
+    if (userData.userName === "" || userData.userMail === "") {
+      setUserData((prev) => ({ ...prev, isLogged: false }));
     } else {
-      SetIsLogged(true);
+      setUserData((prev) => ({ ...prev, isLogged: true }));
     }
+  };
+
+  const loginOut = () => {
+    setUserData({ userMail: "" }, { userNombre: "" });
+    navigate("/");
   };
 
   return (
     <LoginContext.Provider
       value={{
         userData,
-        isLogged,
         setUserData,
-        SetIsLogged,
         loginAuth,
+        loginOut,
       }}
     >
       {children}
