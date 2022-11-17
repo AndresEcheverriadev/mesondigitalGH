@@ -218,6 +218,7 @@ const useValidator = () => {
         userPaterno: found.paterno,
         userMaterno: found.materno,
         userRut: found.rut,
+        userPassword: found.password,
       }));
       navigate("/");
     } else {
@@ -329,6 +330,12 @@ const useValidator = () => {
     }
   };
 
+  function updateUser(value) {
+    return setUserData((prev) => {
+      return { ...prev, ...value };
+    });
+  }
+
   return {
     inputEmail,
     validateEmail,
@@ -346,6 +353,7 @@ const useValidator = () => {
     validatePasswordRepeat,
     registerCheck,
     updateUserCheck,
+    updateUser,
     handleTermsCheckbox,
     errorText,
     modalText,

@@ -16,8 +16,10 @@ function UserPageCuenta({ user }) {
     validateRut,
     validateEmail,
     validatePassword,
+    validateRegisterPassword,
     validatePasswordRepeat,
     updateUserCheck,
+    updateUser,
     errorText,
     modalText,
   } = useValidator();
@@ -76,14 +78,11 @@ function UserPageCuenta({ user }) {
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control inputDisabled"
                   id="userUpdateName"
                   aria-describedby="userUpdateName"
-                  onChange={validateName}
-                />
-                <ErrorTip
-                  errorText="Tu nombre solo puede contener letras"
-                  name="nameErrorTip"
+                  placeholder={userData.userNombre}
+                  disabled
                 />
               </div>
 
@@ -93,14 +92,11 @@ function UserPageCuenta({ user }) {
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control inputDisabled"
                   id="userUpdatePaterno"
                   aria-describedby="userUpdatePaterno"
-                  onChange={validatePaterno}
-                />
-                <ErrorTip
-                  errorText="Tu apellido solo puede contener letras"
-                  name="paternoErrorTip"
+                  placeholder={userData.userPaterno}
+                  disabled
                 />
               </div>
 
@@ -110,14 +106,11 @@ function UserPageCuenta({ user }) {
                 </label>
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control inputDisabled"
                   id="userUpdatePaterno"
                   aria-describedby="userUpdateMaterno"
-                  onChange={validateMaterno}
-                />
-                <ErrorTip
-                  errorText="Tu apellido solo puede contener letras"
-                  name="maternoErrorTip"
+                  placeholder={userData.userMaterno}
+                  disabled
                 />
               </div>
 
@@ -128,17 +121,14 @@ function UserPageCuenta({ user }) {
                 <div className="inputUpdateRutContainer">
                   <input
                     type="text"
-                    class="form-control"
+                    class="form-control inputDisabled"
                     id="userUpdateRut"
                     aria-describedby="userUpdateRut"
+                    placeholder={userData.userRut}
+                    disabled
                     onChange={validateRut}
                   />
                 </div>
-
-                <ErrorTip
-                  errorText={"Rut sin puntos y con guion.Ejemplo:12345678-5"}
-                  name="rutErrorTip"
-                />
               </div>
             </div>
 
@@ -152,6 +142,7 @@ function UserPageCuenta({ user }) {
                   class="form-control"
                   id="userUpdateInputEmail"
                   aria-describedby="emailHelp"
+                  placeholder={userData.userMail}
                   onChange={validateEmail}
                 />
                 <ErrorTip
@@ -161,13 +152,23 @@ function UserPageCuenta({ user }) {
               </div>
               <div class="inputWrapper">
                 <label for="userUpdateInputPassword" className="form-label">
-                  Contraseña
+                  Contraseña actual
+                </label>
+                <input
+                  type="password"
+                  class="form-control inputDisabled"
+                  id="userUpdateInputPassword"
+                />
+              </div>
+              <div class="inputWrapper">
+                <label for="userUpdateInputPassword" className="form-label">
+                  Nueva Contraseña
                 </label>
                 <input
                   type="password"
                   class="form-control"
                   id="userUpdateInputPassword"
-                  onChange={validatePassword}
+                  onChange={validateRegisterPassword}
                 />
                 <ErrorTip
                   errorText="Tu contraseña debe ser de 6 caracteres de largo mínimo y debe contener números y letras mayusculas/minusculas"
@@ -177,7 +178,7 @@ function UserPageCuenta({ user }) {
 
               <div class="inputWrapper">
                 <label for="userUpdatePasswordRepeat" className="form-label">
-                  Repetir Contraseña
+                  Repetir Nueva Contraseña
                 </label>
                 <input
                   type="password"

@@ -9,10 +9,10 @@ function LoginContextProvider({ children }) {
     isLogged: false,
     userMail: "",
     userNombre: "",
-    userCorreo: "",
     userMaterno: "",
     userPaterno: "",
     userRut: "",
+    userPassword: "",
     userTipo: "",
   });
 
