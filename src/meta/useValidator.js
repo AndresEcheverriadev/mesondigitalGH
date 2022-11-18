@@ -294,39 +294,18 @@ const useValidator = () => {
     e.preventDefault();
     if (
       validatedEmail === true &&
-      validatedRegisterName === true &&
-      validatedRegisterMaterno === true &&
-      validatedRegisterPaterno === true &&
-      validatedRut === true &&
       validatedRegisterPassword === true &&
-      validatedRepeatPassword === true &&
-      rutValidator === true &&
-      checkedTerms === true
+      validatedRepeatPassword === true
     ) {
       const updateUserData = {
-        nameData: inputRegisterName,
-        paternoData: inputRegisterPaterno,
-        maternoData: inputRegisterMaterno,
-        rutData: inputRut,
         emailData: inputEmail,
         passwordData: inputRegisterPassword,
       };
       alert(JSON.stringify(updateUserData));
-      return (window.location.href = "/");
-    } else if (
-      validatedEmail === true &&
-      validatedRegisterName === true &&
-      validatedRegisterMaterno === true &&
-      validatedRegisterPaterno === true &&
-      validatedRut === true &&
-      validatedRegisterPassword === true &&
-      validatedRepeatPassword === true &&
-      checkedTerms === true &&
-      rutValidator === false
-    ) {
-      setModalText("Número de Rut Inválido");
-    } else {
       setModalText("Datos actualizados");
+      // return (window.location.href = "/");
+    } else {
+      setModalText("Error en los datos");
     }
   };
 

@@ -133,6 +133,7 @@
   padding-left: 1rem;
   padding-right: 1rem;
   margin: 5px;
+  gap: 20px;
 }
 
 .userPagePersonalDataContainer,
@@ -153,6 +154,10 @@
   margin-bottom: 0 !important;
   border-style: hidden;
   border-radius: 20px;
+}
+
+.inputWrapperSpacer {
+  margin-bottom: 19px !important;
 }
 
 .inputDisabled {

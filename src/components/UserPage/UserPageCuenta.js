@@ -100,7 +100,7 @@ function UserPageCuenta({ user }) {
                 />
               </div>
 
-              <div class="inputWrapper">
+              <div class="inputWrapper inputWrapperSpacer">
                 <label for="userUpdateMaterno" className="form-label">
                   Apellido Materno
                 </label>
@@ -114,7 +114,7 @@ function UserPageCuenta({ user }) {
                 />
               </div>
 
-              <div class="inputWrapper">
+              <div class="inputWrapper ">
                 <label for="userUpdateRut" className="form-label">
                   RUT
                 </label>
@@ -126,7 +126,6 @@ function UserPageCuenta({ user }) {
                     aria-describedby="userUpdateRut"
                     placeholder={userData.userRut}
                     disabled
-                    onChange={validateRut}
                   />
                 </div>
               </div>
