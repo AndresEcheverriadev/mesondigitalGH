@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import logoLogin from "../../images/logo.svg";
 import useValidator from "../../meta/useValidator";
 import ErrorTip from "../ErrorTip/ErrorTip";
-import logoCheck from "../../images/check.svg";
 import "./LoginPage.css";
 import "./LoginPageResponsive.css";
 

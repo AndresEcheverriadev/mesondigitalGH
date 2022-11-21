@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Navigate, NavLink } from "react-router-dom";
+import React, { useContext, useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import UserLinks from "./UserLinks.js";
 import UserPageId from "./UserPageId";
@@ -8,23 +8,20 @@ import ErrorTip from "../ErrorTip/ErrorTip";
 import { LoginContext } from "../Context/LoginContext.js";
 import "./UserPage.css";
 
-function UserPageCuenta({ user }) {
+function UserPageCuenta() {
   const {
-    validateName,
-    validatePaterno,
-    validateMaterno,
-    validateRut,
     validateEmail,
-    validatePassword,
     validateRegisterPassword,
     validatePasswordRepeat,
     updateUserCheck,
-    updateUser,
-    errorText,
     modalText,
   } = useValidator();
 
-  const { userData } = useContext(LoginContext);
+  const { userData, loginAuth, isLogged } = useContext(LoginContext);
+
+  useEffect(() => {
+    loginAuth();
+  }, [userData]);
 
   return (
     <div className="userPageMainWrapper">
@@ -64,9 +61,9 @@ function UserPageCuenta({ user }) {
       <header className="userPageHeaderContainer">
         <Navbar />
       </header>
-      {userData.isLogged === true ? (
+      {isLogged === true ? (
         <div className="userPageMain">
-          <UserPageId user={user} />
+          <UserPageId user={userData} />
           <div className="userMenu">
             <UserLinks activelink="cuenta" />
           </div>

@@ -132,9 +132,9 @@ const useValidator = () => {
     let tmp = rutCompleto.split("-");
     let digv = tmp[1];
     let rut = tmp[0];
-    if (digv == "K") digv = "k";
+    if (digv === "K") digv = "k";
 
-    return rutVerificador(rut) == digv;
+    return rutVerificador(rut) === digv;
   };
 
   const validateRut = (e) => {
@@ -206,7 +206,7 @@ const useValidator = () => {
 
   const checkDB = (loginData) => {
     const loginErrorTip = document.getElementById("loginErrorTip");
-    const { emailData, passwordData } = loginData;
+    const { emailData } = loginData;
     const found = users.find((user) => user.correo === emailData);
     if (found) {
       console.log(found);

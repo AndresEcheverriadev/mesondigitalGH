@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom";
 const LoginContext = createContext([]);
 
 function LoginContextProvider({ children }) {
+  const [isLogged, setisLogged] = useState(false);
   const [userData, setUserData] = useState({
-    isLogged: false,
     userMail: "",
     userNombre: "",
     userMaterno: "",
@@ -20,9 +20,9 @@ function LoginContextProvider({ children }) {
 
   const loginAuth = () => {
     if (userData.userName === "" || userData.userMail === "") {
-      setUserData((prev) => ({ ...prev, isLogged: false }));
+      setisLogged(false);
     } else {
-      setUserData((prev) => ({ ...prev, isLogged: true }));
+      setisLogged(true);
     }
   };
 
@@ -38,6 +38,7 @@ function LoginContextProvider({ children }) {
         setUserData,
         loginAuth,
         loginOut,
+        isLogged,
       }}
     >
       {children}

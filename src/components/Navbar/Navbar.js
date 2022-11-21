@@ -7,7 +7,7 @@ import "./Navbar.css";
 import "./NavbarResponsive.css";
 
 function Navbar() {
-  const { userData, loginAuth } = useContext(LoginContext);
+  const { userData, loginAuth, isLogged } = useContext(LoginContext);
 
   useEffect(() => {
     loginAuth();
@@ -59,7 +59,7 @@ function Navbar() {
       </div>
 
       <div className="initSessionContainer">
-        {userData.isLogged === true ? (
+        {isLogged === true ? (
           <NavLink to="/perfil" className="sessionIndicator">
             <svg
               xmlns="http://www.w3.org/2000/svg"
