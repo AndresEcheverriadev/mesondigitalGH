@@ -1,0 +1,79 @@
+.tramiteCard {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 300px;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--blanco);
+  border-style: hidden;
+  border-radius: 5px;
+  color: var(--negro);
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  gap: 10px;
+}
+
+.tramiteText {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: auto;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.tramiteText p,
+.tramiteText h5 {
+  line-height: 1;
+}
+
+.tramiteCard:hover {
+  background-color: var(--verde);
+  color: var(--blanco);
+}
+
+.tramiteIcon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-style: hidden;
+  border-radius: 50px;
+  background-color: var(--azul);
+  width: 40px;
+  height: 40px;
+  color: var(--blanco);
+  padding: 10px;
+}
+
+.tramiteTagsContainer {
+  display: flex;
+  height: auto;
+  width: auto;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.tramiteTag {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: auto;
+  background-color: var(--azul);
+  border-radius: 15px;
+  padding: 5px 10px 5px 10px;
+}
+
+.tramiteTag p {
+  margin: 0 !important;
+  padding: o !important;
+  color: var(--blanco);
+}
