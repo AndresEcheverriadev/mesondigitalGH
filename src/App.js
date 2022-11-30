@@ -5,6 +5,7 @@ import LoginPage from "./components/LoginPage/LoginPage";
 import RegisterPage from "./components/RegisterPage/RegisterPage";
 import { LoginContextProvider } from "../src/components/Context/LoginContext.js";
 import UserPage from "./components/UserPage/UserPage.js";
+import TramitePage from "./components/TramitePage/TramitePage.js";
 import UserPageCuenta from "./components/UserPage/UserPageCuenta.js";
 import UserPageTramites from "./components/UserPage/UserPageTramites.js";
 import UserPageDocumentos from "./components/UserPage/UserPageDocumentos.js";
@@ -20,6 +21,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/crear-cuenta" element={<RegisterPage />} />
             <Route path="/perfil" element={<UserPage />} />
+            <Route path="/tramite/:tramiteid" element={<TramitePage />} />
             <Route path="/perfil-cuenta" element={<UserPageCuenta />} />
             <Route path="/perfil-tramites" element={<UserPageTramites />} />
             <Route path="/perfil-documentos" element={<UserPageDocumentos />} />

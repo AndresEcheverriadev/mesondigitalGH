@@ -8,6 +8,7 @@ html {
   --grisLight: rgba(175, 175, 175, 0.05);
   --grisSuave: rgba(175, 175, 175, 1);
   --grisMedio: rgba(95, 95, 95, 1);
+  --grisDoc: rgba(101, 110, 131, 1);
   --naranjo: rgba(252, 125, 74, 1);
   --amarillo: rgba(222, 201, 26, 1);
   --rosa: rgba(227, 99, 199, 1);
@@ -25,6 +26,7 @@ html {
   --p: 14px;
   --bold: 700;
   --italic: italic;
+  --docWidth: 80%;
 }
 
 body {

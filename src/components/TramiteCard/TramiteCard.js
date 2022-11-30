@@ -4,7 +4,11 @@ import "./TramiteCard.css";
 
 function TramiteCard({ tramite }) {
   return (
-    <NavLink to="" className="tramiteCard">
+    <NavLink
+      to={`/tramite/${tramite.id}`}
+      tramite={tramite}
+      className="tramiteCard"
+    >
       <div className="tramiteIcon">
         <svg
           xmlns="http://www.w3.org/2000/svg"
