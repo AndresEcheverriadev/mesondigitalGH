@@ -363,8 +363,7 @@ const documentosPlantilla = [
       },
       {
         tipo: "Comparencia",
-        reqText:
-          "Comparecencia personal del arrendatario con cédula de identidad vigente.",
+        reqText: "Comparecencia personal del arrendatario.",
       },
       {
         tipo: "Documento",
