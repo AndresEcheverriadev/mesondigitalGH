@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import documentosPlantilla from "../../meta/documentosPlantilla.js";
 import EditorSlider from "../EditorSlider/EditorSlider.js";
+import membreteNotaria from "../../meta/membreteNotaria.png";
+import { LoginContext } from "../Context/LoginContext.js";
 import "./TramitePage.css";
 
 function TramitePage() {
@@ -10,7 +12,37 @@ function TramitePage() {
     (tramite) => tramite.id === tramiteid
   );
 
-  const req = tramite.requerimentos.tipo;
+  const meses = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
+  const date = new Date();
+  const day = date.getDate();
+  const month = meses[date.getMonth()];
+  const year = date.getFullYear();
+
+  const { userData } = useContext(LoginContext);
+
+  const [nameFile, setNameFile] = useState("");
+
+  const changeNameFile = (e) => {
+    setNameFile(e.target.files[0].name);
+  };
+
+  const documentFooterSignText = `Firmo ante mi ${userData.userNombre} ${userData.userPaterno} ${userData.userMaterno}, quien acredita su identidad con la cédula de
+  identidad N° ${userData.userRut}.`;
+
+  const documentFooterDateText = `Santiago,${day} de ${month} del ${year}`;
 
   return (
     <div className="tramitePageMainWrapper">
@@ -18,14 +50,78 @@ function TramitePage() {
         <div className="tramitePageEditor">
           <h5 className="tramitePageEditorTitle">Crear Documento</h5>
           <EditorSlider />
-          <div className="documentOptions"></div>
+          <div className="documentUploadContainer">
+            <label className="documentUploadLabel" htmlFor="documentLoadInput">
+              <p>Seleccionar documento(pdf/word)</p>
+              <input
+                onChange={changeNameFile}
+                id="documentLoadInput"
+                type="file"
+              />
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="currentColor"
+                class="bi bi-file-text"
+                viewBox="0 0 16 16"
+              >
+                <path d="M5 4a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5zM5 8a.5.5 0 0 0 0 1h6a.5.5 0 0 0 0-1H5zm0 2a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H5z" />
+                <path d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm10-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1z" />
+              </svg>
+              <p id="documentLoadInputFilename">
+                {nameFile != "" ? nameFile : "..."}
+              </p>
+            </label>
+          </div>
+          <div className="documentEditContainer">
+            <input
+              id="documentInput1"
+              type="text"
+              placeholder="Andres Echeverría Pinela "
+            />
+            <input id="documentInput2" type="text" placeholder="16.238.882-7" />
+
+            <input
+              id="documentInput3"
+              type="text"
+              placeholder="Santa Victoria 340"
+            />
+            <input
+              id="documentInput4"
+              type="text"
+              placeholder="Santiago Centro"
+            />
+            <input
+              id="documentInput5"
+              type="text"
+              placeholder="Ricardo Martinez"
+            />
+            <input id="documentInput6" type="text" placeholder="10.203.123-4" />
+            <input
+              id="documentInput6"
+              type="text"
+              placeholder=" frente a VTR S.A. en el reclamo por mala calidad del servicio"
+            />
+            <input id="documentInput7" type="text" placeholder="02" />
+            <input id="documentInput8" type="text" placeholder="Diciembre" />
+            <input id="documentInput9" type="text" placeholder="2022" />
+          </div>
         </div>
         <div className="tramitePageDocument">
           <div className="documentTemplate">
+            <div className="membreteNotaria">
+              <img id="logoMembreteNotaria" src={membreteNotaria} alt="" />
+            </div>
             <h5>{tramite.title}</h5>
+            <div className="legalbodyText"></div>
+            <div className="documentFooter">
+              <p id="documentFooterFirmaSpace">Firma</p>
+              <p id="documentFooterSign">{documentFooterSignText}</p>
+              <p id="documentFooterDate">{documentFooterDateText} </p>
 
-            <p>FIRMA</p>
-            <p>NOTARIO</p>
+              <p id="documentFooterNotarioSpace">Notario</p>
+            </div>
           </div>
         </div>
         <div className="tramitePageInfo">

@@ -23,6 +23,8 @@
   width: 30%;
   height: 1000px;
   padding: 10px;
+  justify-content: flex-start;
+  align-items: center;
   background-color: var(--grisDocSuave);
 }
 
@@ -31,6 +33,48 @@
   text-align: center;
   font-weight: var(--bold);
   margin: 0 5px 5px 0;
+}
+
+.documentUploadContainer {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: auto;
+  padding: 10px;
+  border-color: var(--grisDoc);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+}
+
+.documentEditContainer {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: auto;
+  padding: 10px;
+  border-color: var(--grisDoc);
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 5px;
+}
+
+.documentUploadLabel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.documentUploadContainer input {
+  display: none;
+}
+
+.documentUploadContainer label {
+  cursor: pointer;
 }
 
 .tramitePageDocument {
@@ -49,6 +93,8 @@
   flex-direction: column;
   width: 470px;
   height: 611px;
+  justify-content: space-between;
+  align-items: center;
   background-color: var(--blanco);
   margin-top: 20px;
   border-color: var(--grisDoc);
@@ -56,6 +102,51 @@
   border-width: 2px;
   border-radius: 5px;
   padding: 20px 10px 10px 10px;
+}
+
+.membreteNotaria {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 10%;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+#logoMembreteNotaria {
+  width: 150px;
+  height: auto;
+}
+
+.documentFooter {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.documentFooter p {
+  line-height: 1;
+  margin: 0 !important;
+}
+
+#documentFooterFirmaSpace,
+#documentFooterNotarioSpace {
+  width: 50%;
+  height: auto;
+  margin-top: 20px !important;
+  margin-bottom: 10px !important;
+  border-top: 1px solid var(--negro);
+}
+
+#documentFooterSign,
+#documentFooterDate {
+  width: 100%;
+  height: auto;
+  text-align: left;
 }
 
 .tramitePageInfo {
@@ -199,4 +290,10 @@
   color: var(--negro);
   text-align: left;
   padding: 10px;
+}
+
+.documentCommentsText {
+  text-align: left;
+  line-height: 1;
+  margin: 0 !important;
 }
