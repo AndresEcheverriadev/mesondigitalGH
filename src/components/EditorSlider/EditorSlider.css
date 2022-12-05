@@ -52,7 +52,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: var(--azul);
+  background-color: var(--grisDocSuave);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -63,14 +63,14 @@
   height: 36px;
   width: 36px;
   left: 4px;
-  bottom: 4px;
-  background-color: white;
+  bottom: 3px;
+  background-color: var(--azul);
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: var(--azul);
+  background-color: var(--grisDocSuave);
 }
 
 input:focus + .slider {
@@ -78,16 +78,27 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(76px);
-  -ms-transform: translateX(76px);
-  transform: translateX(76px);
+  -webkit-transform: translateX(73px);
+  -ms-transform: translateX(73px);
+  transform: translateX(73px);
 }
 
 /* Rounded sliders */
 .slider.round {
   border-radius: 34px;
+  border-color: var(--azul);
+  border-style: solid;
+  border-width: 2px;
 }
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+#selectedOption {
+  color: var(--azul);
+}
+
+#disabledOption {
+  color: var(--grisSuave);
 }

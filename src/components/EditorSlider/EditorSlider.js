@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import "./EditorSlider.css";
 
-function EditorSlider() {
+function EditorSlider({ checked }) {
+  const [isChecked, setisChecked] = useState(false);
+
+  const handleCheck = (e) => {
+    setisChecked((current) => !current);
+  };
+
   return (
     <div className="switchContainer">
-      <div className="editOption">
+      <div
+        className="editOption"
+        id={isChecked === false ? "selectedOption" : "disabledOption"}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -18,10 +27,13 @@ function EditorSlider() {
         <p> Editar plantilla</p>
       </div>
       <label class="switch">
-        <input type="checkbox" />
+        <input type="checkbox" onChange={handleCheck} />
         <span class="slider round"></span>
       </label>
-      <div className="uploadOption">
+      <div
+        className="uploadOption"
+        id={isChecked === true ? "selectedOption" : "disabledOption"}
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"

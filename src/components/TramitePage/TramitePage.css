@@ -47,6 +47,11 @@
   border-radius: 5px;
 }
 
+#fileSelected {
+  font-weight: var(--bold);
+  color: var(--azul);
+}
+
 .documentEditContainer {
   display: flex;
   flex-direction: column;
