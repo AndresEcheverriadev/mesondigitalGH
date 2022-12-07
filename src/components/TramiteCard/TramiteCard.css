@@ -9,9 +9,7 @@
   border-style: hidden;
   border-radius: 5px;
   color: var(--negro);
-  padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 10px;
   gap: 10px;
 }
 
@@ -49,31 +47,40 @@
   padding: 10px;
 }
 
-.tramiteTagsContainer {
-  display: flex;
-  height: auto;
-  width: auto;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 5px;
-}
-
-.tramiteTag {
+.tramiteCardDocumentOptionsContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 20px;
-  width: auto;
-  background-color: var(--azul);
-  border-radius: 15px;
-  padding: 5px 10px 5px 10px;
+  width: 50%;
+  height: auto;
+  gap: 5px;
+  margin-top: auto;
 }
 
-.tramiteTag p {
-  margin: 0 !important;
-  padding: o !important;
+.tramiteCardEditOptionBtn,
+.tramiteCardUploadOptionBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--azul);
+  border-radius: 30px;
+  background-color: var(--blanco);
+  gap: 5px;
+}
+
+.tramiteCardEditOptionBtn:hover,
+.tramiteCardUploadOptionBtn:hover {
+  background-color: var(--azul);
   color: var(--blanco);
+}
+
+.tramiteCardUploadOptionLink {
+  width: 100%;
+  height: auto;
 }

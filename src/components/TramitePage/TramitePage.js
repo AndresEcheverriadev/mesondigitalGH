@@ -49,7 +49,10 @@ function TramitePage() {
       <div className="tramitPageViewContainer">
         <div className="tramitePageEditor">
           <h5 className="tramitePageEditorTitle">Crear Documento</h5>
-          <EditorSlider />
+          <EditorSlider
+            templateAble={tramite.template === true ? true : false}
+            uploadAble={tramite.upload === true ? true : false}
+          />
           <div className="documentUploadContainer">
             <label className="documentUploadLabel" htmlFor="documentLoadInput">
               <p>Seleccionar documento(pdf)</p>
