@@ -21,7 +21,10 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/crear-cuenta" element={<RegisterPage />} />
             <Route path="/perfil" element={<UserPage />} />
-            <Route path="/tramite/:tramiteid" element={<TramitePage />} />
+            <Route
+              path="/tramite/:tramiteid/:upload?"
+              element={<TramitePage />}
+            />
             <Route path="/perfil-cuenta" element={<UserPageCuenta />} />
             <Route path="/perfil-tramites" element={<UserPageTramites />} />
             <Route path="/perfil-documentos" element={<UserPageDocumentos />} />

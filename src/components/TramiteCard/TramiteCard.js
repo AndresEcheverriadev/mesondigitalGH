@@ -9,7 +9,7 @@ function TramiteCard({ tramite }) {
 
   return (
     <NavLink
-      to={`/tramite/${tramite.id}`}
+      to={`/tramite/${tramite.id}/upload=0?`}
       tramite={tramite}
       className="tramiteCard"
     >
@@ -33,7 +33,7 @@ function TramiteCard({ tramite }) {
       <div className="tramiteCardDocumentOptionsContainer">
         {tramite.template === true ? (
           <NavLink
-            to={`/tramite/${tramite.id}`}
+            to={`/tramite/${tramite.id}/upload=0?`}
             className="tramiteCardUploadOptionLink"
           >
             <button className="tramiteCardEditOptionBtn">
@@ -53,7 +53,7 @@ function TramiteCard({ tramite }) {
         ) : null}
         {tramite.upload === true ? (
           <NavLink
-            to={`/tramite/${tramite.id}`}
+            to={`/tramite/${tramite.id}/upload=1?`}
             className="tramiteCardUploadOptionLink"
           >
             <button
