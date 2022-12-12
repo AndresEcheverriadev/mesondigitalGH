@@ -1,9 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { TramiteContext } from "../Context/TramiteContext";
 import "./EditorSlider.css";
 
-function EditorSlider({ templateAble, uploadAble }) {
+function EditorSlider({ templateAble, uploadAble, uploadSwitch }) {
   const [isChecked, setisChecked] = useState(false);
   const [nameFile, setNameFile] = useState("");
 
@@ -11,13 +10,21 @@ function EditorSlider({ templateAble, uploadAble }) {
     setNameFile(e.target.files[0].name);
   };
 
-  const { upload } = useParams();
+  useEffect(() => {
+    if (uploadSwitch === true) {
+      alert("set is checked true");
+      setisChecked(true);
+    }
+  }, [uploadSwitch]);
 
   const handleCheck = () => {
     setisChecked((current) => !current);
   };
 
-  alert(isChecked);
+  // alert(
+  //   "upload switch recibido es: " + typeof uploadSwitch + " " + uploadSwitch
+  // );
+  // alert("templateAble es: " + typeof templateAble + " " + templateAble);
 
   return (
     <div className="editorSliderMain">
@@ -43,7 +50,11 @@ function EditorSlider({ templateAble, uploadAble }) {
 
         {templateAble === true && uploadAble == true ? (
           <label class="switch">
-            <input type="checkbox" onChange={handleCheck} />
+            <input
+              type="checkbox"
+              onChange={handleCheck}
+              checked={isChecked === true ? true : false}
+            />
             <span class="slider round"></span>
           </label>
         ) : null}

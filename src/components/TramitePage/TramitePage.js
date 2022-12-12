@@ -38,12 +38,32 @@ function TramitePage() {
 
   const documentFooterDateText = `Santiago,${day} de ${month} del ${year}`;
 
+  const [uploadSwitch, setUploadSwitch] = useState(false);
+
+  const uploadConvert = (upload) => {
+    switch (upload) {
+      case "upload=true":
+        setUploadSwitch(true);
+        break;
+      case "upload=false":
+        setUploadSwitch(false);
+        break;
+      default:
+        break;
+    }
+  };
+
+  useEffect(() => {
+    uploadConvert(upload);
+  }, [upload]);
+
   return (
     <div className="tramitePageMainWrapper">
       <div className="tramitPageViewContainer">
         <div className="tramitePageEditor">
           <h5 className="tramitePageEditorTitle">Crear Documento</h5>
           <EditorSlider
+            uploadSwitch={uploadSwitch === true ? true : false}
             templateAble={tramite.template === true ? true : false}
             uploadAble={tramite.upload === true ? true : false}
           />

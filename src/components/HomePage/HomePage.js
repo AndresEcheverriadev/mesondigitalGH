@@ -5,9 +5,9 @@ import ContactForm from "../ContactForm/ContactForm";
 import ilustracionHome from "../../images/ilustracionHome.svg";
 import ilustracionFooter from "../../images/ilustracionHomeB.svg";
 import Footer from "../Footer/Footer";
+import TramiteCard from "../TramiteCard/TramiteCard.js";
 import "./HomePage.css";
 import "./HomePageResponsive.css";
-import TramiteCard from "../TramiteCard/TramiteCard.js";
 
 function HomePage() {
   return (
