@@ -12,7 +12,6 @@ function EditorSlider({ templateAble, uploadAble, uploadSwitch }) {
 
   useEffect(() => {
     if (uploadSwitch === true) {
-      alert("set is checked true");
       setisChecked(true);
     }
   }, [uploadSwitch]);

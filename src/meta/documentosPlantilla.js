@@ -91,7 +91,7 @@ const documentosPlantilla = [
     print: false,
     tags: ["Viaje", "Certificados", "Declaración jurada"],
     observaciones: "",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal del declarante.",
@@ -115,7 +115,7 @@ const documentosPlantilla = [
     print: false,
     tags: ["Viaje"],
     observaciones: "",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal del declarante.",
@@ -149,16 +149,19 @@ const documentosPlantilla = [
     print: true,
     tags: ["Automóvil", "Autorizaciones"],
     observaciones: "",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
-        reqText:
-          "Comparecencia personal del dueño del vehiculo con cédula de identidad vigente",
+        reqText: "Comparecencia personal del dueño del vehiculo.",
+      },
+      {
+        tipo: "Documento",
+        reqText: "cédula de identidad vigente del dueño.",
       },
       {
         tipo: "Documento",
         reqText:
-          "Certificado de anotaciones vigentes del vehículo, del día que se firmará la autorización.Vehículo NO debe estar con prenda ni prohibiciones",
+          "Certificado de anotaciones vigentes del vehículo, del día que se firmará la autorización.Vehículo NO debe estar con prenda ni prohibiciones.",
       },
     ],
   },
@@ -175,21 +178,25 @@ const documentosPlantilla = [
     print: true,
     tags: ["Automóvil", "Autorizaciones"],
     observaciones: "",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText:
-          "Comparecencia personal del Representante Legal (propiertario del vehículo), con cédula de identidad vigente.",
+          "Comparecencia personal del Representante Legal (propiertario del vehículo).",
+      },
+      {
+        tipo: "Documento",
+        reqText: "Cédula de identidad vigente del propietario del vehículo.",
       },
       {
         tipo: "Documento",
         reqText:
-          "Certificado de anotaciones vigentes del vehículo, del día que se firmará la autorización.Vehículo NO debe estar con prenda ni prohibiciones",
+          "Certificado de anotaciones vigentes del vehículo, del día que se firmará la autorización.Vehículo NO debe estar con prenda ni prohibiciones.",
       },
       {
         tipo: "Documento",
         reqText:
-          "Escritura de constitución con vigencia, para validar al Representante Legal Vigencia de poder (si escritura es de mas de un año)",
+          "Escritura de constitución con vigencia, para validar al Representante Legal Vigencia de poder (si escritura es de mas de un año).",
       },
     ],
   },
@@ -207,14 +214,18 @@ const documentosPlantilla = [
     tags: ["Viaje", "Autorizaciones", "Familia"],
     observaciones:
       "La Autorización de Viaje para menor de edad por Documento privado tiene una duración máxima de 90 días sin posibilidad de renovación y con sólo un país de destino, mientras que la Escritura Pública tiene vigencia indefinida y no requiere especificación del país de destino. Para la autorizacion por escritura publica  por favor gestionar el trámite en este nro de whatsapp XXXXXXXXXX",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
-        reqText: "Comparecer ambos padres con CI vigente",
+        reqText: "Comparecer ambos padres.",
       },
       {
         tipo: "Documento",
-        reqText: "Certificado de nacimiento para todo trámite",
+        reqText: "Cédula de identidad vigente de ambos padres.",
+      },
+      {
+        tipo: "Documento",
+        reqText: "Certificado de nacimiento del menor para todo trámite",
       },
       {
         tipo: "Documento",
@@ -237,20 +248,24 @@ const documentosPlantilla = [
     tags: ["Viaje", "Autorizaciones", "Familia"],
     observaciones:
       "La Autorización de Viaje para menor de edad por Documento privado tiene una duración máxima de 90 días sin posibilidad de renovación y con sólo un país de destino, mientras que la Escritura Pública tiene vigencia indefinida y no requiere especificación del país de destino. Para la autorizacion por escritura publica  por favor gestionar el trámite en este nro de whatsapp XXXXXXXXXX",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText:
-          "Si el permiso lo entregan ambos padres, ambos deben comparecer en la notaria con CI vigente.",
-      },
-      {
-        tipo: "Comparencia",
-        reqText:
-          "Si el permiso lo entrega uno al otro, solo debe comparecer el progenitor que extiende el permiso con CI vigente",
+          "Si el permiso lo entregan ambos padres, ambos deben comparecer en la notaría.",
       },
       {
         tipo: "Documento",
-        reqText: "Certificado de nacimiento para todo trámite.",
+        reqText: "Cédula de identidad vigente de ambos padres.",
+      },
+      {
+        tipo: "Condiciones",
+        reqText:
+          "Si el permiso lo entrega uno al otro, solo debe comparecer el progenitor que extiende el permiso con cédula de identidad vigente.",
+      },
+      {
+        tipo: "Documento",
+        reqText: "Certificado de nacimiento del menor para todo trámite.",
       },
       {
         tipo: "Documento",
@@ -273,16 +288,16 @@ const documentosPlantilla = [
     tags: ["Viaje", "Autorizaciones", "Familia"],
     observaciones:
       "La Autorización de Viaje para menor de edad por Documento privado tiene una duración máxima de 90 días sin posibilidad de renovación y con sólo un país de destino, mientras que la Escritura Pública tiene vigencia indefinida y no requiere especificación del país de destino. Para la autorizacion por escritura publica  por favor gestionar el trámite en este nro de whatsapp XXXXXXXXXX",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText:
-          "Si el permiso lo entregan ambos padres, ambos deben comparecer en la notaria con CI vigente.",
+          "Si el permiso lo entregan ambos padres, ambos deben comparecer en la notaria con cédula de identidad vigente.",
       },
       {
         tipo: "Comparencia",
         reqText:
-          "Si el permiso lo entrega uno al otro, solo debe comparecer el progenitor que extiende el permiso con CI vigente.",
+          "Si el permiso lo entrega uno al otro, solo debe comparecer el progenitor que extiende el permiso con Cédula de identidad vigente.",
       },
       {
         tipo: "Documento",
@@ -290,7 +305,7 @@ const documentosPlantilla = [
           "Certificado de Nacimiento del menor de edad, que será protocolarizado junto con la escritura.",
       },
       {
-        tipo: "Consideraciones",
+        tipo: "Condiciones",
         reqText:
           "El permiso se otorga para viajar a cualquier parte del mundo, pero puede ser limitado.",
       },
@@ -300,7 +315,7 @@ const documentosPlantilla = [
           "Se debe adjuntar el certificado de nacimiento del menor el que se protocoliza junto con la escritura.",
       },
       {
-        tipo: "Documento",
+        tipo: "Condiciones",
         reqText:
           "Si el declarante tiene o es mayor de 75 años, se debe exhibir un certificado médico que indique lo siguiente: “se encuentra apto para trámites notariales, se encuentra en su sano y entero juicio pudiendo ejecutar actos jurídicos válidos”. Dicho certificado debe ser emitido por un médico especialista de alguna de las siguientes especialidades: psiquiatría, neurología o geriatría.",
       },
@@ -319,7 +334,7 @@ const documentosPlantilla = [
     print: false,
     tags: ["Hogar", "Arriendo", "Casa/Departamento"],
     observaciones: "",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal del arrendador.",
@@ -352,7 +367,7 @@ const documentosPlantilla = [
     tags: ["Automóvil", "Contratos"],
     observaciones:
       "Si no tiene el contrato redactado y requiere que se lo redacten, por favor escriba al nro de whatsapp XXXXXXXXXX y podra gestionar sun tramite y coordinar su firma a comodidad de su agenda.",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal del dueño del vehículo.",
@@ -395,8 +410,9 @@ const documentosPlantilla = [
     custody: false,
     print: false,
     tags: ["Declaración jurada"],
-    observaciones: "Aplica para un sinfín de cosas",
-    requerimentos: [
+    observaciones:
+      "Documento que sirve para formalizar una declaración. Se puede ocupar para múltiples fines.",
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal del declarante.",
@@ -421,7 +437,7 @@ const documentosPlantilla = [
     tags: ["Declaración jurada"],
     observaciones:
       "Esta declaracion aplica para muchos temas, como desafiliacion partido politico, dias sin goce de sueldo, desistir de ser donante, ingreso per capita, etc",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal del declarante.",
@@ -446,7 +462,7 @@ const documentosPlantilla = [
     tags: ["Declaración jurada"],
     observaciones:
       "El solicitante no firma el documento, los testigos declaran bajo juramento el estado civil del tercero, por ende no es necesaria su comparecencia.",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText:
@@ -481,7 +497,7 @@ const documentosPlantilla = [
     tags: ["Declaración jurada", "Comerciales"],
     observaciones:
       "La declaración jurada de alcoholes debe realizarse para la venta, comercialización, renovación de patentes y otros de bebidas alcohólicas, algunas instituciones solicitan este documento donde se indica que dicha persona no se encuentra afecto ni ha actuado en contravención de las causales de inhabilidad establecidas en el Artículo 4º de la Ley 19.925, sobre Expendio y Consumo de Bebidas Alcohólicas.",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal de quien declara.",
@@ -506,7 +522,7 @@ const documentosPlantilla = [
     tags: ["Declaración jurada", "Laborales"],
     observaciones:
       "La declaración jurada de cesantía es requerida por diferentes instituciones para el cobro de seguros, subvenciones y también para suspensiones de pago de créditos, entre otros.",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal de quien declara.",
@@ -531,7 +547,7 @@ const documentosPlantilla = [
     tags: ["Declaración jurada", "Laborales"],
     observaciones:
       "La declaración jurada de ingresos permite a las personas dejar constancia de los ingresos brutos y en la labor desempeñada (puesto de trabajo). Del mismo modo es obligatorio que la Declaración Jurada de Ingresos sea firmada ante Notario, y entregada ante las autoridades del país, y dentro del plazo indicado, lo que permitirá, con anticipación, conocer el valor de la cuota del año a cancelar.",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal de quien declara.",
@@ -561,7 +577,7 @@ const documentosPlantilla = [
     tags: ["Declaración jurada", "Automóvil"],
     observaciones:
       "La declaración jurada de extravío de licencia de conducir sirve para dar aviso de que este documento fue robado o está perdido. De este modo, el titular de la licencia no será responsable en caso de que un tercero haga mal uso de ella. Juzgados de policía local y municipalidades, solicitan frecuentemente que se declare bajo juramento la pérdida de una licencia de conducir o carnet de conducir para la reposición de la misma o bien para otros.",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal de quien declara.",
@@ -586,7 +602,7 @@ const documentosPlantilla = [
     tags: ["Declaración jurada", "Familia"],
     observaciones:
       "La declaración jurada de expensas es un documento que debe ser solicitado ante notario público y que acredita que una persona asumirá los costos de mantención en Chile de otra persona. Generalmente se utiliza por los solicitantes de residencia que son titulares, respecto de su grupo familiar, o por chilenos que tienen familiares extranjeros a los que se compromete a mantener económicamente.",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal de quien declara.",
@@ -611,7 +627,7 @@ const documentosPlantilla = [
     tags: ["Declaración jurada", "Hogar"],
     observaciones:
       "Declaración para acreditar pérdida de elementos tales como Llaves, licencia, documento, etc",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal de quien declara.",
@@ -636,7 +652,7 @@ const documentosPlantilla = [
     tags: ["Declaración jurada", "Laborales"],
     observaciones:
       "Es la declaración jurada de un interesado en ingresar a la administración pública, en calidad de planta o contrata, que exige la ley, expresando no tener incompatibilidades para hacerlo, no haber cesado en un cargo público como consecuencia de haber obtenido una calificación deficiente, o por medida disciplinaria, en los últimos cinco años (Artículo 12 letra e del Estatuto Administrativo), no estar inhabilitado para el ejercicio de funciones o cargos públicos, no hallarse condenado por crimen o simple delito (Artículo 12 letra f del Estatuto Administrativo) y no estar afecto a las inhabilidades señaladas en el artículo de la Ley N° 18.575, Orgánica Constitucional de Bases Generales de la Administración del Estado. Es usual que lo servicios públicos dispongan de formularios para hacer esta declaración.",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal de quien declara.",
@@ -662,7 +678,7 @@ const documentosPlantilla = [
     tags: ["Laborales", "Certificados", "Declaración Jurada"],
     observaciones:
       "Con este documento, el empleador podrá generar una declaración jurada que certifica la antigüedad laboral del dependiente, su puesto de trabajo y su renta.",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal de quien declara.",
@@ -688,7 +704,7 @@ const documentosPlantilla = [
     tags: ["Laborales", "Certificados", "Declaración Jurada"],
     observaciones:
       "Con este documento, el empleador podrá generar una declaración jurada que certifica la antigüedad laboral del dependiente, su puesto de trabajo y su renta.",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal de quien declara.",
@@ -722,7 +738,7 @@ const documentosPlantilla = [
     tags: ["Laborales", "Declaración jurada"],
     observaciones:
       "La renuncia voluntaria es uno de los documentos que permite dar término a un contrato de trabajo. Este debe ser presentada al empleador con las formalidades que se establece en el N° 2 del artículo 159 del Código del Trabajo. En efecto, debe ser entregadas al empleador con, a lo menos, 30 días de anticipación por escrito, firmada por el dependiente y ratificada por un ministro de fe que puede ser, entre otros, un notario público.",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal de quien renuncia.",
@@ -747,7 +763,7 @@ const documentosPlantilla = [
     tags: ["Poder simple"],
     observaciones:
       "Una carta de poder simple permite que pueda representar a otra en una institución dada con un fin específico, con el fin de realizar algún trámite particular. Ejemplo - Celular, AFP, etc",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal de quien otorga el poder.",
@@ -779,7 +795,7 @@ const documentosPlantilla = [
     tags: ["Poder simple"],
     observaciones:
       "Una carta de poder simple permite que pueda representar a otra en una institución dada con un fin específico, con el fin de realizar algún trámite particular. Ejemplo - Celular, AFP, etc",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: " Comparecencia personal del Representante Legal.",
@@ -817,7 +833,7 @@ const documentosPlantilla = [
     tags: ["Poder simple", "Bancarios"],
     observaciones:
       "El poder bancario simple para persona natural, permite que una persona natural entregue poder a un tercero, que también debe ser una persona natural, para que opere con poder en representación de ella ante una determinada entidad bancaria. Para administración con poderes amplios, este poder simple no es suficiente, sino que es requerido un poder bancario por escritura pública. Para gestionar ese tipo de documentos por favor escribir al siguiente nro de whatapp XXXXXXXXXX",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal de quien otorga el poder.",
@@ -841,7 +857,7 @@ const documentosPlantilla = [
     print: false,
     tags: ["Poder simple", "Bancarios"],
     observaciones: "",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal del Representante Legal.",
@@ -871,7 +887,7 @@ const documentosPlantilla = [
     tags: ["Casa/Departamento", "Arriendo"],
     observaciones:
       "Aquellas personas que desean arrendar un bien inmueble (casa, departamento u otro), pueden delegar la administración del mismo en un tercero con el objeto de que gestionen arrendatarios, pagos, cuentas, celebrar documentos y todo relacionado con el mismo para dar cumplimiento al mandato del arrendamiento.",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText:
@@ -902,7 +918,7 @@ const documentosPlantilla = [
     tags: ["Poder simple", "Automóvil"],
     observaciones:
       "El poder para retirar un vehículo entrega a un tercero, no dueño, la atribución para presentarse en corrales y/o custodia municipal para que pueda retirar dicho vehículo custodiado en dichas dependencias.",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal de quien otorga el poder.",
@@ -934,7 +950,7 @@ const documentosPlantilla = [
     print: true,
     tags: ["Automóvil", "Compra y Venta"],
     observaciones: "",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal de quien otorga el poder.",
@@ -962,7 +978,7 @@ const documentosPlantilla = [
     print: true,
     tags: ["Automóvil", "Compra y Venta"],
     observaciones: "",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal del comprador.",
@@ -1010,7 +1026,7 @@ const documentosPlantilla = [
     requerimientosTramite: [
       {
         categoría: "",
-        requerimentos: [],
+        requerimientos: [],
       },
     ],
   },
@@ -1028,7 +1044,7 @@ const documentosPlantilla = [
     tags: ["Automóvil", "Compra y Venta"],
     observaciones:
       "Si desea realizar este trámite, solo tiene que esscribirnos a nuesto whatsapp. Una ejecutiva gestionara su tramite y podra coordinar la firma y retiro a su comodidad.",
-    requerimentos: [],
+    requerimientos: [],
   },
   {
     title: "Autorización de uso Domicilio Comercial",
@@ -1044,7 +1060,7 @@ const documentosPlantilla = [
     tags: ["Autorizaciones", "Empresas"],
     observaciones:
       "La autorización de domicilio comercial son requisitos regulados por la ley, y cumplen la función de supervisar el buen funcionamiento de las empresas. De esta manera al obtener la autorización de tu empresa, te aseguras de estar cumpliendo con las condiciones estructurales, ambientales, sanitarias y municipales correspondientes.",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal del propietario.",
@@ -1073,7 +1089,7 @@ const documentosPlantilla = [
     print: false,
     tags: ["Laborales"],
     observaciones: "",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal del trabajador.",
@@ -1112,7 +1128,7 @@ const documentosPlantilla = [
     tags: ["Casa/Departamento", "Contratos"],
     observaciones:
       "Si no tiene el contrato redactado y requiere que se lo redacten, por favor escriba al nro de whatsapp XXXXXXXXXX y podra gestionar sun tramite y coordinar su firma a comodidad de su agenda.. Para los contratos de arriendo con poder por favor gestionar contactar al mismo numero",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal del arrendador.",
@@ -1154,7 +1170,7 @@ const documentosPlantilla = [
     tags: ["Hogar", "Contrato"],
     observaciones:
       "Si no tiene el contrato redactado y requiere que se lo redacten, por favor escriba al nro de whatsapp XXXXXXXXXX y podra gestionar sun tramite y coordinar su firma a comodidad de su agenda.. Para los contratos de arriendo con poder por favor gestionar contactar al mismo numero",
-    requerimentos: [
+    requerimientos: [
       {
         tipo: "Comparencia",
         reqText: "Comparecencia personal del Representante Legal (arrendador).",

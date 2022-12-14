@@ -11,7 +11,6 @@ function TramitePage() {
   const tramite = documentosPlantilla.find(
     (tramite) => tramite.id === tramiteid
   );
-
   const meses = [
     "Enero",
     "Febrero",
@@ -103,7 +102,7 @@ function TramitePage() {
               <p className="documentRequiresTitle">
                 Requerimientos del trámite
               </p>
-              {tramite.requerimentos.map((req) => {
+              {tramite.requerimientos.map((req) => {
                 return (
                   <div className="requirePod">
                     <div className="reqType">

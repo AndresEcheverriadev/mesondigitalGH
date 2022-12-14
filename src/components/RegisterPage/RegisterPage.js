@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import { validRut, getRutVerifier } from "chilean-rutify";
 import logoLogin from "../../images/logo.svg";
 import useValidator from "../../meta/useValidator";
 import ErrorTip from "../ErrorTip/ErrorTip";

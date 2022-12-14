@@ -1,3 +1,4 @@
+import { Alert } from "bootstrap";
 import React, { useEffect, useState } from "react";
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
@@ -7,9 +8,22 @@ import "./TramiteCard.css";
 function TramiteCard({ tramite }) {
   const { handleUploadOption } = useContext(TramiteContext);
 
+  const uploadCheckMode = (template, upload) => {
+    if (template === true && upload === true) {
+      return false;
+    } else if (template === true && upload === false) {
+      return false;
+    } else if (template === false && upload === true) {
+      return true;
+    }
+  };
+
   return (
     <NavLink
-      to={`/tramite/${tramite.id}/upload=false`}
+      to={`/tramite/${tramite.id}/upload=${uploadCheckMode(
+        tramite.template,
+        tramite.upload
+      )}`}
       tramite={tramite}
       className="tramiteCard"
     >
