@@ -1,3 +1,5 @@
+const legalInput = "{input}";
+
 const documentosPlantilla = [
   {
     title: "Declaración Jurada de Mudanza (Salvoconducto)",
@@ -134,6 +136,24 @@ const documentosPlantilla = [
         reqText:
           "Comparecencia personal del declarante con pasaporte extranjero vigente.",
       },
+    ],
+    legalText: [
+      [
+        `Por la presente yo ${legalInput}.`,
+        `Con domicilio en ${legalInput}.`,
+        `C. Identidad nº ${legalInput}.`,
+      ],
+      [
+        `Vengo a exponer lo siguiente:`,
+        `Que, por a través de este acto vengo a extender carta de invitación a Don/Doña ${legalInput},`,
+        `pasaporte nº ${legalInput},`,
+        `para que visite Chile, a contar del ${legalInput} de ${legalInput} del ${legalInput}, por un periodo máximo de aproximadamente 90 días.`,
+        `Durante su estadia en chile me haré cargo y además responsable de todos sus gastos en este país, esto es, su alimentación, vivienda, pasaje, seguro médico y otros gastos.`,
+        `Don/doña ${legalInput}, pasaporte nº ${legalInput},`,
+        `pernoctará en la propiedad ubicada en: ${legalInput}, comuna de ${legalInput}, inmueble que es mi lugar de residencia y domicilio.`,
+        `Esta invitación se realiza, porque don/doña viene a: ${legalInput}. 
+    `,
+      ],
     ],
   },
   {

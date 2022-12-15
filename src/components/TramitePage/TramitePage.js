@@ -35,7 +35,7 @@ function TramitePage() {
   const documentFooterSignText = `Firmo ante mi ${userData.userNombre} ${userData.userPaterno} ${userData.userMaterno}, quien acredita su identidad con la cédula de
   identidad N° ${userData.userRut}.`;
 
-  const documentFooterDateText = `Santiago,${day} de ${month} del ${year}`;
+  const documentFooterDateText = `Santiago,${day} de ${month} del ${year}.`;
 
   const [uploadSwitch, setUploadSwitch] = useState(false);
 
@@ -56,6 +56,8 @@ function TramitePage() {
     uploadConvert(upload);
   }, [upload]);
 
+  const legalInput = "{input}";
+
   return (
     <div className="tramitePageMainWrapper">
       <div className="tramitPageViewContainer">
@@ -72,7 +74,18 @@ function TramitePage() {
             <div className="membreteNotaria">
               <img id="logoMembreteNotaria" src={membreteNotaria} alt="" />
             </div>
-            <h5>{tramite.title}</h5>
+            <h5 className="tramiteTitle">{tramite.title}</h5>
+            <div className="legalTextContainer">
+              {tramite.legalText.map((section) => {
+                return (
+                  <div className="legalSection">
+                    {section.map((line) => {
+                      return <p className="legalLine">{line}</p>;
+                    })}
+                  </div>
+                );
+              })}
+            </div>
             <div className="legalbodyText"></div>
             <div className="documentFooter">
               <p id="documentFooterFirmaSpace">Firma</p>
