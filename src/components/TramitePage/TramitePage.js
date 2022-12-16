@@ -88,11 +88,29 @@ function TramitePage() {
             </div>
             <div className="legalbodyText"></div>
             <div className="documentFooter">
-              <p id="documentFooterFirmaSpace">Firma</p>
-              <p id="documentFooterSign">{documentFooterSignText}</p>
-              <p id="documentFooterDate">{documentFooterDateText} </p>
+              {tramite.customSign ? (
+                <div className="customSignContainer">
+                  {tramite.customSign.map((signLine) => {
+                    return (
+                      <p className="customSignLine">
+                        {signLine.map((customInnerLine) => {
+                          return (
+                            <p className="customInnerLine">{customInnerLine}</p>
+                          );
+                        })}
+                      </p>
+                    );
+                  })}
+                </div>
+              ) : (
+                <div className="genericSignContainer">
+                  <p id="documentFooterFirmaSpace">Firma</p>
+                  <p id="documentFooterSign">{documentFooterSignText}</p>
+                  <p id="documentFooterDate">{documentFooterDateText} </p>
 
-              <p id="documentFooterNotarioSpace">Notario</p>
+                  <p id="documentFooterNotarioSpace">Notario</p>
+                </div>
+              )}
             </div>
           </div>
         </div>

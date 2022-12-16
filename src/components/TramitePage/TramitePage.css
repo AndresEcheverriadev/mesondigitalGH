@@ -65,13 +65,13 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 10%;
+  height: auto;
   justify-content: center;
   align-items: flex-start;
 }
 
 #logoMembreteNotaria {
-  width: 130px;
+  width: 100px;
   height: auto;
 }
 
@@ -86,7 +86,7 @@
   height: auto;
   justify-content: flex-start;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
 }
 
 .legalSection {
@@ -100,7 +100,7 @@
 }
 
 .legalLine {
-  font-size: 12px;
+  font-size: 11px;
   width: 100%;
   height: auto;
   line-height: 1;
@@ -120,9 +120,19 @@
 }
 
 .documentFooter p {
-  font-size: 12px !important;
+  font-size: 10px !important;
   line-height: 1;
   margin: 0 !important;
+}
+
+.genericSignContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 #documentFooterFirmaSpace,
@@ -139,6 +149,38 @@
   width: 100%;
   height: auto;
   text-align: left;
+}
+
+.customSignContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.customSignLine {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: auto;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 5px;
+  text-align: left;
+}
+
+.customInnerLine {
+  height: auto;
+  width: 100%;
+  border-top: 1px solid var(--negro);
+  text-align: center;
+}
+
+.customInnerLine {
+  font-size: 10px !important;
 }
 
 .tramitePageInfo {

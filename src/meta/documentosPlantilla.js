@@ -141,7 +141,7 @@ const documentosPlantilla = [
       [
         `Por la presente yo ${legalInput}.`,
         `Con domicilio en ${legalInput}.`,
-        `C. Identidad nº ${legalInput}.`,
+        `Cédula de Identidad nº ${legalInput}.`,
       ],
       [
         `Vengo a exponer lo siguiente:`,
@@ -923,6 +923,20 @@ const documentosPlantilla = [
           "Copia de inscripción de la propiedad con vigencia (se obtiene en el Conservador de Bienes Raíces).",
       },
     ],
+    legalText: [
+      [
+        `Por la presente yo ${legalInput}.`,
+        `cédula de Identidad nº ${legalInput}.`,
+        `con domicilio en ${legalInput}.`,
+        `confiero poder a ${legalInput}.`,
+        `cédula de Identidad nº ${legalInput}.`,
+      ],
+      [
+        `Para que:`,
+        `En mi nombre y representacion administre el inmueble ubicado en ${legalInput}, comuna de ${legalInput}, quedando facultado para ejecutar todos los actos tendientes a la administración, conservación y reparación del inmueble indicado, con todas las facultades del articulo 2.132 del código civil.`,
+        `Podrá celebrar y poner termino a contratos de arriendo y comodato; comprar toda clase de bienes necesarios para su administración y conservación; representar al mandante ante toda clase de organismos públicos o privados, asamblea de copropietarios, municipalidades, s.i.i, tesorerías, compañías proveedoras de servicios domiciliarios; recibir correspondencia certificada, giros y encomiendas; cobrar y percibir  lo que al mandante se le adeude, y otorgar recibos y cancelaciones; cobrar y depositar cheques nominativos, y celebrar todo acto o contrato que diga relación con lo anterior, pudiendo firmar todos los documentos que sean necesarios para el cabal cumplimiento de este mandato.`,
+      ],
+    ],
   },
   {
     title: "Poder para retirar vehiculo",
@@ -984,6 +998,20 @@ const documentosPlantilla = [
         reqText: "Certificado de anotaciones vigentes del vehículos del día.",
       },
     ],
+    legalText: [
+      [
+        `Por la presente yo ${legalInput}.`,
+        `cédula de Identidad nº ${legalInput}.`,
+        `con domicilio en ${legalInput}.`,
+        `confiero poder a ${legalInput}.`,
+        `cédula de Identidad nº ${legalInput}.`,
+      ],
+      [
+        `Para que:`,
+        `En mi nombre y representación venda, ceda y transfiera en el precio y condiciones que estime convenientes, el siguiente vehículo de mi propiedad: ${legalInput}, marca ${legalInput}, modelo ${legalInput}, nº motor ${legalInput}, nº chasis ${legalInput}, color ${legalInput}, año ${legalInput}, placa única e inscripción ${legalInput}, pudiendo fijar y percibir el precio de venta, forma de pago y condiciones, y firmar el contrato de compraventa respectivo y hacer declara-ción sobre tributación.`,
+        `Al efecto confiero al mandatario todas las facultades necesarias para el eficaz y correcto desempeño de su mandato, incluso las de firmar los documentos, recibos o resguardos que se le exijan y, en general, lo faculto para que proceda a efectuar to-dos los trámites que sean necesarios para dar cumplido éxito a su misión. El presen-te poder tendrá una vigencia de seis meses.`,
+      ],
+    ],
   },
   {
     title: "Transferencia Vehículo",
@@ -1027,6 +1055,36 @@ const documentosPlantilla = [
         tipo: "Documento",
         reqText: "Permiso de circulacion al día.",
       },
+    ],
+    legalText: [
+      [
+        `Entre don/doña ${legalInput}, domiciliado en ${legalInput}, comuna de ${legalInput}, Cédula de Identidad Nº ${legalInput} como vendedor, y don/doña ${legalInput}, domiciliado en ${legalInput}, comuna de ${legalInput}, Cédula de Identidad Nº ${legalInput} como comprador se ha convenido el siguiente contrato de compraventa:`,
+      ],
+      [
+        `PRIMERO: Don/Doña ${legalInput} vende y transfiere a don/doña ${legalInput} quien compra y acepta para sí vehículo ${legalInput}, marca ${legalInput}, modelo ${legalInput}, motor Nº ${legalInput}, chasis  Nº ${legalInput},VIN o Nº de serie ${legalInput}, color ${legalInput}, año ${legalInput}, combustible ${legalInput}, PBV ${legalInput}, inscripción y placa única ${legalInput} en el estado en que se encuentra, que es conocido del comprador, quien declara haberse recibido materialmente de lo comprado a su entera satisfacción y sin derecho a ningún reclamo posterior.`,
+      ],
+      [
+        `SEGUNDO: El precio de venta es la cantidad de $ ${legalInput} que el comprador paga al contado al vendedor y del cual éste se da por recibido a su entera satisfacción.`,
+      ],
+      [
+        `TERCERO: Declara el vendedor que lo vendido no tiene deudas ni gravámenes de ninguna especie y que ha sido causal determinante de esta operación la precedente declaración. El impuesto que afecta a la presente venta será de cargo del comprador.`,
+      ],
+      [
+        `CUARTO: El notario que suscribe deja constancia que para autorizar este contrato tuvo a la vista el permiso de circulación del vehículo y el certificado de la inscripción en el Registro de Vehículos Motorizados, ambos a nombre del vendedor.`,
+      ],
+      [
+        `QUINTO: El vendedor declara bajo juramento que no tuvo derecho a crédito fiscal cuando adquirió el vehículo, por lo tanto, la presente compraventa no está afecta a IVA.`,
+      ],
+      [
+        `Otorgado en Santiago de Chile, el ${legalInput}, ${legalInput} de ${legalInput} de ${legalInput}.`,
+      ],
+    ],
+    customSign: [
+      [`Comprador Rut ${legalInput}`, `Vendedor Rut ${legalInput}`],
+      [
+        `Firmaron ante mí don/doña ${legalInput}, cédula de identidad Nº ${legalInput} y don/doña ${legalInput}, cédula de identidad Nº ${legalInput}, quienes me acreditaron su identidad con las cédulas citadas. El impuesto municipal del 1,5%, asciende a la suma de $ ${legalInput} se pagó en BICE. Santiago, ${legalInput}, ${legalInput} de ${legalInput} de ${legalInput}.`,
+      ],
+      [`     Notario     `],
     ],
   },
   {
